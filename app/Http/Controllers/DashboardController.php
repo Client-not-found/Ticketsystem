@@ -15,7 +15,9 @@ class DashboardController extends Controller
             'password' => 'required',
         ]);
 
-        return view('dashboard');
+        return view('dashboard',[
+            'tickets' => Ticket::all(),
+        ]);
     }
 
     public function dashboard () {
@@ -25,7 +27,9 @@ class DashboardController extends Controller
     }
 
     public function tickets () {
-        return view('tickets');
+        return view('tickets',[
+            'tickets' => Ticket::all(),
+        ]);
     }
 
     public function knowledgebase () {
