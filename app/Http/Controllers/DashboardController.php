@@ -17,12 +17,14 @@ class DashboardController extends Controller
 
         return view('dashboard',[
             'tickets' => Ticket::all(),
+            'openTickets' => Ticket::where("ticStatus", "Open")->get()
         ]);
     }
 
     public function dashboard () {
         return view('dashboard',[
             'tickets' => Ticket::all(),
+            'openTickets' => Ticket::where("ticStatus", "Open")->get()
         ]);
     }
 

@@ -14,12 +14,13 @@ class CreateTicketsTable extends Migration
     public function up()
     {
         Schema::create('tickets', function (Blueprint $table) {
-            $table->id();
-            $table->subject();
-            $table->departement();
-            $table->status();
+            $table->increments('ticId');
+            $table->string("ticSubject");
+            $table->string("ticDepartement");
+            $table->string("ticStatus");
             $table->timestamps();
         });
+
     }
 
     /**
