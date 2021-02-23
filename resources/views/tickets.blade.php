@@ -6,8 +6,10 @@
 </header>
 <body>
     <br>
-    <h4 class="text-center">Ticket list</h4>
-    <p>Here you can see your ticket history</p>
+    <div class="text-center">
+        <h3>Ticket list</h3>
+        <p>Here you can see your ticket history</p>
+    </div>
     <div class="col-md-12">
         <button type="button" class="btn btn-success" @click="newTicket">Create new ticket</button>
         <table class="table">

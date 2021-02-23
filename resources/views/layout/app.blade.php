@@ -39,7 +39,7 @@
                     <a class="nav-link" href="/tickets">Tickets</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/knowledgebase">Wissensdatenbank</a>
+                    <a class="nav-link" href="/knowledgebase">Knowledge Base</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link disabled" href="/acp">ACP</a>

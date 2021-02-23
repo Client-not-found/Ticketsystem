@@ -20,7 +20,12 @@
 </style>
 <body>
     <div class="container">
-        <h1 class="text-center">Bitte Einloggen</h1>
+        <br>
+        <div class="text-center">
+            <h1>Please Login</h1>
+            <p>If you don't have an account yet please contact a member of our staff</p>
+        </div>
+        <br>
         <div class="card card-center col-md-3">
             <div class="card-body">
                 <h5 class="card-title text-center">Login</h5>
@@ -32,7 +37,7 @@
                     </div>
                     <br>
                     <div class="form-group">
-                        <label for="password">Passwort</label>
+                        <label for="password">Password</label>
                         <input type="password" class="form-control" id="password" name="password">
                     </div>
                     <br>

@@ -8,7 +8,7 @@
     <body>
         <br>
         <div class="text-center">
-            <h4>Create Ticket</h4>
+            <h3>Create Ticket</h3>
             <p>To create a new ticket please fill out the form below</p>
         </div>
         <div>

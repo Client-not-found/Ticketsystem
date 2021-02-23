@@ -7,6 +7,11 @@
 
     <body>
         <div class="container">
+            <div class="text-center">
+                <br>
+                <h3>Dashboard</h3>
+                <p>Welcome to the Dashboard</p>
+            </div>
             <br>
             <!-- Statistik -->
             <div class="row">
