@@ -5,7 +5,11 @@ new Vue({
             location.href = '/dashboard';
         },
 
-        ticketDetail(id) {
+        newTicket() {
+            location.href = '/newticket';
+        },
+
+        ticketDetails(id) {
             location.href = '/ticket/' + id;
         },
     }

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\TicketController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +25,9 @@ Route::get('/dashboard', [DashboardController::class, 'dashboard'] );
 
 Route::get('/tickets', [DashboardController::class, 'tickets'] );
 
-Route::get( '/ticket/{id}', [BlogController::class, 'detail']);
+Route::get('/newticket', [TicketController::class, 'newTicket'] );
+
+Route::get( '/ticket/{id}', [TicketController::class, 'ticketDetails']);
 
 Route::get('/knowledgebase', [DashboardController::class, 'knowledgebase'] );
 

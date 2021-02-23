@@ -6,14 +6,18 @@
 </header>
 <body>
     <br>
-    <h4>Ticketliste</h4>
+    <h4 class="text-center">Ticket list</h4>
+    <p>Here you can see your ticket history</p>
     <div class="col-md-12">
+        <button type="button" class="btn btn-success" @click="newTicket">Create new ticket</button>
         <table class="table">
+            <br>
+            <br>
             <thead class="bg-secondary text-white">
                 <tr>
                     <th scope="col" class="col-md-2">ID</th>
-                    <th scope="col" class="col-md-4">Betreff</th>
-                    <th scope="col" class="col-md-6">Abteilung</th>
+                    <th scope="col" class="col-md-4">Subject</th>
+                    <th scope="col" class="col-md-6">Department</th>
                     <th scope="col" class="col-md-6">Status</th>
                 </tr>
             </thead>

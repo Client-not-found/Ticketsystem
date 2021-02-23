@@ -13,7 +13,7 @@
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-body text-white bg-success">
-                            <h5 class="card-title">Tickets Offen</h5>
+                            <h5 class="card-title">Tickets Open</h5>
                             <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
                         </div>
                     </div>
@@ -21,7 +21,7 @@
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-body text-white bg-danger">
-                            <h5 class="card-title">Tickets Geschlossen</h5>
+                            <h5 class="card-title">Tickets Closed</h5>
                             <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
                         </div>
                     </div>
@@ -29,7 +29,7 @@
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-body text-white bg-primary">
-                            <h5 class="card-title">Tickets Gesamt</h5>
+                            <h5 class="card-title">Tickets total</h5>
                             <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
                         </div>
                     </div>
@@ -38,7 +38,7 @@
             <br>
 
             <!-- Offene Tickets -->
-            <h4>Offene Tickets </h4>
+            <h4>Open tickets </h4>
             <table class="table">
                 <thead class="bg-secondary text-white">
                     <tr>
@@ -50,7 +50,7 @@
             </table>
             @foreach($openTickets as $ticket)
             <div class="list-group-item list-group-item-action" aria-current="true">
-                <a href="tickeDetail ( {{ $ticket->id }} )">
+                <a href="#" @onClick="ticketDetail ( {{$ticket->ticId}} )">
                     <div class="row">
                         <b class="col-md-2">{{$ticket->ticId}}</b>
                         <p class="col-md-5">{{$ticket->ticDepartement}}</p>
