@@ -10,19 +10,6 @@
 
 </head>
 
-<style>
-    .footer {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        /* Set the fixed height of the footer here */
-        height: 60px;
-        line-height: 60px;
-        /* Vertically center the text there */
-        background-color: #f5f5f5;
-    }
-
-</style>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">Ticketsystem</a>

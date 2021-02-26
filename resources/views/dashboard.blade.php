@@ -19,7 +19,7 @@
                     <div class="card">
                         <div class="card-body text-white bg-success">
                             <h5 class="card-title">Tickets Open</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                            <h6 class="card-subtitle mb-2 text-white">{{$countOpenTickets}}</h6>
                         </div>
                     </div>
                 </div>
@@ -27,15 +27,15 @@
                     <div class="card">
                         <div class="card-body text-white bg-danger">
                             <h5 class="card-title">Tickets Closed</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                            <h6 class="card-subtitle mb-2 text-white">{{$countClosedTickets}}</h6>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-body text-white bg-primary">
-                            <h5 class="card-title">Tickets total</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                            <h5 class="card-title">Tickets Total</h5>
+                            <h6 class="card-subtitle mb-2 text-white">{{$countTickets}}</h6>
                         </div>
                     </div>
                 </div>
@@ -55,7 +55,7 @@
             </table>
             @foreach($openTickets as $ticket)
             <div class="list-group-item list-group-item-action" aria-current="true">
-                <a href="#" @onClick="ticketDetail ( {{$ticket->ticId}} )">
+                <a href="/ticket/{{$ticket->ticId}}">
                     <div class="row">
                         <b class="col-md-2">{{$ticket->ticId}}</b>
                         <p class="col-md-5">{{$ticket->ticDepartement}}</p>

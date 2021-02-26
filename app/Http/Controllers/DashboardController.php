@@ -17,14 +17,26 @@ class DashboardController extends Controller
 
         return view('dashboard',[
             'tickets' => Ticket::all(),
-            'openTickets' => Ticket::where("ticStatus", "Open")->get()
+            'countTickets' => Ticket::count(),
+
+            'openTickets' => Ticket::where("ticStatus", "Open")->get(),
+            'countOpenTickets' => Ticket::where("ticStatus", "Open")->count(),
+
+            'closeTickets' => Ticket::where("ticStatus", "Close")->get(),
+            'countClosedTickets' => Ticket::where("ticStatus", "Close")->count()
         ]);
     }
 
     public function dashboard () {
         return view('dashboard',[
             'tickets' => Ticket::all(),
-            'openTickets' => Ticket::where("ticStatus", "Open")->get()
+            'countTickets' => Ticket::count(),
+
+            'openTickets' => Ticket::where("ticStatus", "Open")->get(),
+            'countOpenTickets' => Ticket::where("ticStatus", "Open")->count(),
+
+            'closeTickets' => Ticket::where("ticStatus", "Close")->get(),
+            'countClosedTickets' => Ticket::where("ticStatus", "Close")->count()
         ]);
     }
 

@@ -15,6 +15,7 @@ class CreateKnowledgeBaseTable extends Migration
     {
         Schema::create('knowledge_base', function (Blueprint $table) {
             $table->id();
+            $table->String('knoName');
             $table->timestamps();
         });
     }

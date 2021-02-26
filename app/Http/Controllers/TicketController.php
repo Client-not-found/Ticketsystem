@@ -13,7 +13,7 @@ class TicketController extends Controller {
     {
 
         return view('ticketDetails', [
-            'ticket' => Ticket::find( $id )
+            'ticket' => Ticket::where( "ticId", $id )->first()
         ]);
 
     }
