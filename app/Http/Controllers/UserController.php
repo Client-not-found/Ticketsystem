@@ -24,4 +24,12 @@ class UserController extends Controller
             'countClosedTickets' => Ticket::where("ticStatus", "Close")->count()
         ]);
     }
+
+    public function admin() {
+        return view('acp.user');
+    }
+
+    public function newUser () {
+        return view('acp.newuser');
+    }
 }

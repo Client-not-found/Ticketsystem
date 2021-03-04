@@ -22,8 +22,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//UserController Routen
 Route::post('/dashboard', [UserController::class, 'login'] );
 
+Route::get('/usermanagement', [UserController::class, 'admin'] );
+
+Route::get('/newuser', [UserController::class, 'newTicket'] );
+
+//TicketController Routen
 Route::get('/dashboard', [TicketController::class, 'statistics'] );
 
 Route::get('/tickets', [TicketController::class, 'tickets'] );
@@ -34,6 +40,13 @@ Route::get('/newticket', [TicketController::class, 'newTicket'] );
 
 Route::get( '/ticket/{id}', [TicketController::class, 'ticketDetails']);
 
+//CategoryController Routen
 Route::get('/knowledgebase', [CategoryController::class, 'showCategories'] );
 
+Route::get('/knowledgemanagement', [CategoryController::class, 'admin'] );
+
+Route::get('/newcategory', [CategoryController::class, 'newCategory'] );
+
+//DashboardController Routen
 Route::get('/acp', [DashboardController::class, 'acp'] );
+

@@ -9,7 +9,7 @@ class DashboardController extends Controller
 {
 
     public function acp () {
-        return view('acp');
+        return view('acp.dashboard');
     }
 
 } ?>

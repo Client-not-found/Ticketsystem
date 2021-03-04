@@ -29,7 +29,7 @@
                     <a class="nav-link" href="/knowledgebase">Knowledge Base</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="/acp">ACP</a>
+                    <a class="nav-link" href="/acp">ACP</a>
                 </li>
             </ul>
         </div>

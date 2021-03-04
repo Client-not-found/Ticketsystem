@@ -16,4 +16,11 @@ class CategoryController extends Controller
         ]);
     }
 
+    public function admin() {
+        return view('acp.knowledgebase');
+    }
+
+    public function newCategory () {
+        return view('acp.newcategory');
+    }
 }
