@@ -9,6 +9,34 @@ class TicketController extends Controller {
         return view('newTicket');
     }
 
+    public function tickets () {
+        return view('tickets',[
+            'tickets' => Ticket::all(),
+        ]);
+    }
+
+    public function statistics () {
+        return view('dashboard',[
+            'tickets' => Ticket::all(),
+            'countTickets' => Ticket::count(),
+
+            'openTickets' => Ticket::where("ticStatus", "Open")->get(),
+            'countOpenTickets' => Ticket::where("ticStatus", "Open")->count(),
+
+            'closeTickets' => Ticket::where("ticStatus", "Close")->get(),
+            'countClosedTickets' => Ticket::where("ticStatus", "Close")->count()
+        ]);
+    }
+
+    public function save ( Request $request ) {
+        //dd( $request->subject );
+        Ticket::create([
+            'ticSubject' => $request->ticSubject,
+            'ticDepartement' => $request->ticDepartement, 
+            'ticStatus' => 'Open',
+        ]);
+    }
+
     public function ticketDetails(Request $request, int $id)
     {
 

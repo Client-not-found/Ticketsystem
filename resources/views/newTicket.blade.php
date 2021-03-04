@@ -14,8 +14,8 @@
         <div>
             <div class="card">
                 <div class="card-body">
-                    @csrf
-                    <form method="get" action="/tickets">
+                    <form method="post" action="/tickets">
+                        @csrf
                         <div class="form-group">
                             <label for="subject">Subject</label>
                             <input type="text" class="form-control" name="subject" id="subject" placeholder="A brief, pithy description of your request" required>
@@ -35,7 +35,7 @@
                             <textarea class="form-control" id="message" name="message" rows="5" placeholder="Please describe your request here" required></textarea>
                         </div>
                         <br>
-                        <button type="submit" class="btn btn-outline-success">Submit</button>
+                        <button type="submit" @click="save" class="btn btn-outline-success">Submit</button>
                     </form>
                 </div>
             </div>

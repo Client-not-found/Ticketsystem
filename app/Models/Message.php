@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Ticket extends Model
+class Message extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['ticKey', 'ticUseId', 'ticTopic', 'ticStatus'];
+    protected $fillable = ['mesKey', 'meyTicId', 'mesUseId', 'mesMessage'];
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTicketsTable extends Migration
+class CreateCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,10 @@ class CreateTicketsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tickets', function (Blueprint $table) {
-            $table->increments('ticId');
-            $table->string("ticSubject");
-            $table->string("ticDepartement");
-            $table->string("ticStatus");
-            $table->timestamps();
+        Schema::create('categories', function (Blueprint $table) {
+            $table->increments('catKey');
+            $table->boolean('catActive');
         });
-
     }
 
     /**
@@ -30,6 +26,6 @@ class CreateTicketsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tickets');
+        Schema::dropIfExists('categories');
     }
 }

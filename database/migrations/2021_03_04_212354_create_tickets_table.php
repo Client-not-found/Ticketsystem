@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateArticleTable extends Migration
+class CreateTicketsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateArticleTable extends Migration
      */
     public function up()
     {
-        Schema::create('article', function (Blueprint $table) {
-            $table->id();
-            $table->String('artTitle');
-            $table->String('artText');
-            $table->timestamps();
+        Schema::create('tickets', function (Blueprint $table) {
+            $table->increments('ticKey');
+            $table->integer('ticUseId');
+            $table->string('ticTopic');
+            $table->string('ticStatus');
+            $table->timestamp('created_at')->nullable();
         });
     }
 
@@ -28,6 +29,6 @@ class CreateArticleTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('article');
+        Schema::dropIfExists('tickets');
     }
 }

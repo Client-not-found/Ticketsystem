@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TicketController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\UserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,16 +22,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('/dashboard', [DashboardController::class, 'login'] );
+Route::post('/dashboard', [UserController::class, 'login'] );
 
-Route::get('/dashboard', [DashboardController::class, 'dashboard'] );
+Route::get('/dashboard', [TicketController::class, 'statistics'] );
 
-Route::get('/tickets', [DashboardController::class, 'tickets'] );
+Route::get('/tickets', [TicketController::class, 'tickets'] );
+
+Route::post('/tickets', [TicketController::class, 'save'] );
 
 Route::get('/newticket', [TicketController::class, 'newTicket'] );
 
 Route::get( '/ticket/{id}', [TicketController::class, 'ticketDetails']);
 
-Route::get('/knowledgebase', [DashboardController::class, 'knowledgebase'] );
+Route::get('/knowledgebase', [CategoryController::class, 'showCategories'] );
 
 Route::get('/acp', [DashboardController::class, 'acp'] );
