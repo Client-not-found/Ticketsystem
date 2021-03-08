@@ -24,6 +24,10 @@ new Vue({
     newUser: function newUser() {
       location.href = '/newuser';
     },
+    //Article Events
+    newArticle: function newArticle() {
+      location.href = '/newarticle';
+    },
     //Category Events
     newCategory: function newCategory() {
       location.href = '/newcategory';

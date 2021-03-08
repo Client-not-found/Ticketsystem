@@ -3,28 +3,29 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Ticket;
+use App\Models\Group;
 use App\Models\User;
 
 class UserController extends Controller
 {
     public function login ( Request $request) {
+        //dd($request->password);
         $request->validate([
             'username' => 'required',
             'password' => 'required',
         ]);
 
-        return view('dashboard',[
-            'tickets' => Ticket::all(),
-            'countTickets' => Ticket::count(),
+        if (Auth::attempt(['useUsername' => $request->username, 'password' => $request->password])) {
+            $request->session()->regenerate();
 
-            'openTickets' => Ticket::where("ticStatus", "Open")->get(),
-            'countOpenTickets' => Ticket::where("ticStatus", "Open")->count(),
+            return redirect ('dashboard');
+        }
 
-            'closeTickets' => Ticket::where("ticStatus", "Close")->get(),
-            'countClosedTickets' => Ticket::where("ticStatus", "Close")->count()
+        return back()->withErrors([
+            'useUsername' => 'Login Fehlgeschlagen',
         ]);
-
     }
 
     public function admin() {
@@ -37,7 +38,8 @@ class UserController extends Controller
     {
 
         return view('acp.userdetails', [
-            'user' => User::where( "useKey", $id )->first()
+            'user' => User::where( "useKey", $id )->first(),
+            'groups' => Group::all(),
         ]);
 
     }
@@ -63,7 +65,7 @@ class UserController extends Controller
         User::create([
             'useGroId' => $request->group,
             'useUsername' => $request->username, 
-            'usePassword' => $request->password,
+            'usePassword' => bcrypt( $request->password ),
             'useFirstname' => $request->firstname,
             'useLastname' => $request->lastname,
             'useStreet' => $request->street,

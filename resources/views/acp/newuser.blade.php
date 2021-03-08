@@ -81,9 +81,9 @@
                         <div class="col-md-6">
                             <label for="group">Permission Group</label>
                             <select class="form-control" id="group" name="group" required>
+
                                 <option value="1">Administrator</option>
-                                <option value="2">Employees</option>
-                                <option value="3">Customer</option>
+
                             </select>
                         </div>
                     </div>

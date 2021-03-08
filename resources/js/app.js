@@ -13,9 +13,15 @@ new Vue({
         ticketDetails(id) {
             location.href = '/ticket/' + id;
         },
+
         //User Events
         newUser() {
             location.href = '/newuser';
+        },
+
+        //Article Events
+        newArticle() {
+            location.href = '/newarticle';
         },
 
         //Category Events

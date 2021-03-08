@@ -4,4 +4,31 @@
     <header>
         <title>Ticketsystem | Dashboard</title>
     </header>
+
+    <body>
+        <div class="card">
+            <div class="card-body">
+                <form>
+                    <div class="form-group col-md-6">
+                        <label for="inputState">Category</label>
+                        <select id="inputState" class="form-control">
+                            @foreach($categories as $category)
+                            <option value="{{$category->catKey}}">{{$category->catName}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input type="text" class="form-control" id="title" name="title" required>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="message">Text</label>
+                        <textarea class="form-control" id="message" name="message" rows="5" placeholder="Create new article"></textarea>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
     @endsection

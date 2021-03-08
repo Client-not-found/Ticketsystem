@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ArticleController;
 
 
 /*
@@ -54,6 +55,9 @@ Route::get('/newcategory', [CategoryController::class, 'newCategory'] );
 Route::post('/knowledgemanagement', [CategoryController::class, 'acpSave'] );
 
 Route::get('/category/{id}', [CategoryController::class, 'categoryDetails'] );
+
+//ArticleController Routen
+Route::get('/newarticle', [ArticleController::class, 'newArticle'] );
 
 //DashboardController Routen
 Route::get('/acp', [DashboardController::class, 'acp'] );
