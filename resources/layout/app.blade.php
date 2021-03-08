@@ -8,12 +8,6 @@
 
 </head>
 
-<style>
-    body {
-        background-color: gray;
-    }
-
-</style>
 <body>
     <div class="container">
         @yield('content')

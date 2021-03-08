@@ -81,9 +81,9 @@
                         <div class="col-md-6">
                             <label for="group">Permission Group</label>
                             <select class="form-control" id="group" name="group" required>
-
-                                <option value="1">Administrator</option>
-
+                                @foreach($groups as $group)
+                                <option value="{{$group->groKey}}">{{$group->groName}}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>

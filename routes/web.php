@@ -59,6 +59,8 @@ Route::get('/category/{id}', [CategoryController::class, 'categoryDetails'] );
 //ArticleController Routen
 Route::get('/newarticle', [ArticleController::class, 'newArticle'] );
 
+Route::post('/knowledgebase', [ArticleController::class, 'save'] );
+
 //DashboardController Routen
 Route::get('/acp', [DashboardController::class, 'acp'] );
 

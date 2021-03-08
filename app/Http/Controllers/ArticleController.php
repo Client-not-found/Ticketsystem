@@ -12,4 +12,13 @@ class ArticleController extends Controller
             'categories' => Category::all(),
             ]);
     }
+
+    public function save ( Request $request ) {
+        Ticket::create([
+            'artUseId' => '1',
+            'ArtCatId' => $request->category,
+            'artTopic' => $request->title, 
+            'artMessage' => $request->message,
+        ]);   
+    }
 }

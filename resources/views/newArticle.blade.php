@@ -10,8 +10,8 @@
             <div class="card-body">
                 <form>
                     <div class="form-group col-md-6">
-                        <label for="inputState">Category</label>
-                        <select id="inputState" class="form-control">
+                        <label for="category">Category</label>
+                        <select id="category" class="form-control">
                             @foreach($categories as $category)
                             <option value="{{$category->catKey}}">{{$category->catName}}</option>
                             @endforeach
@@ -26,6 +26,12 @@
                     <div class="form-group">
                         <label for="message">Text</label>
                         <textarea class="form-control" id="message" name="message" rows="5" placeholder="Create new article"></textarea>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <button type="submit" @click="save" class="btn btn-outline-success">Send</button>
+                        </div>
                     </div>
                 </form>
             </div>

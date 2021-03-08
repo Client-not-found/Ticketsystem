@@ -32,6 +32,7 @@ class TicketController extends Controller {
         //dd( $request->subject );
         Ticket::create([
             'ticTopic' => $request->ticTopic,
+            'ticUseId' => 'auth()->user()->useKey',
             'ticDepartement' => $request->ticDepartement, 
             'ticStatus' => 'Open',
         ]);

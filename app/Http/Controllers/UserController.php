@@ -45,7 +45,9 @@ class UserController extends Controller
     }
 
     public function newUser () {
-        return view('acp.newuser');
+        return view('acp.newuser', [
+            'groups' => Group::all(),
+        ]);
     }
 
     public function acpSave ( Request $request ) {
