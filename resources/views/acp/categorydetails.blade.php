@@ -30,7 +30,7 @@
                 @csrf
                 <div class="form-group">
                     <label for="category">Category Name</label>
-                    <input type="text" class="form-control" id="category" name="category" required>
+                    <input type="text" class="form-control" id="category" name="category" value="{{$category->catName}}" required>
                 </div>
                 <br>
                 <div class="form-group">

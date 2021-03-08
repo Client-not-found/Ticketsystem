@@ -11,13 +11,13 @@
             <h3>Knowledge Base</h3>
             <p>Welcome to the knowledge base. Here you will find help articles on frequently asked topics.</p>
         </div>
+        @foreach($categories as $category)
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">{{$category->catName}}</th>
                 </tr>
             </thead>
-            @foreach($categories as $category)
             @foreach($articles as $article)
             <tbody>
                 <tr>
@@ -28,7 +28,7 @@
                 </tr>
             </tbody>
             @endforeach
-            @endforeach
         </table>
+        @endforeach
     </body>
     @endsection

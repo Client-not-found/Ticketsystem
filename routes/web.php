@@ -27,7 +27,11 @@ Route::post('/dashboard', [UserController::class, 'login'] );
 
 Route::get('/usermanagement', [UserController::class, 'admin'] );
 
-Route::get('/newuser', [UserController::class, 'newTicket'] );
+Route::get('/newuser', [UserController::class, 'newUser'] );
+
+Route::post('/newuser', [UserController::class, 'acpSave'] );
+
+Route::get('/user/{id}', [UserController::class, 'userDetails'] );
 
 //TicketController Routen
 Route::get('/dashboard', [TicketController::class, 'statistics'] );
@@ -47,6 +51,12 @@ Route::get('/knowledgemanagement', [CategoryController::class, 'admin'] );
 
 Route::get('/newcategory', [CategoryController::class, 'newCategory'] );
 
+Route::post('/knowledgemanagement', [CategoryController::class, 'acpSave'] );
+
+Route::get('/category/{id}', [CategoryController::class, 'categoryDetails'] );
+
 //DashboardController Routen
 Route::get('/acp', [DashboardController::class, 'acp'] );
+
+Route::post('/user', [UserController::class, 'acpSave'] );
 

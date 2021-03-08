@@ -10,6 +10,6 @@ class User extends Model
     use HasFactory;
 
     protected $fillable = ['useKey', 'useGroId', 'useUsername', 'usePassword', 
-    'useFirstname', 'useLastname', 'useStreet', 'useZip', 'useCity', 'useState',
+    'useFirstname', 'useLastname', 'useStreet', 'useZIP', 'useCity', 'useState',
     'useMail'];
 }

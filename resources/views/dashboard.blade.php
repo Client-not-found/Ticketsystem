@@ -55,11 +55,11 @@
             </table>
             @foreach($openTickets as $ticket)
             <div class="list-group-item list-group-item-action" aria-current="true">
-                <a href="/ticket/{{$ticket->ticId}}">
+                <a href="/ticket/{{$ticket->ticKey}}">
                     <div class="row">
-                        <b class="col-md-2">{{$ticket->ticId}}</b>
+                        <b class="col-md-2">{{$ticket->ticKey}}</b>
                         <p class="col-md-5">{{$ticket->ticDepartement}}</p>
-                        <p class="col-md-5">{{$ticket->ticSubject}}</p>
+                        <p class="col-md-5">{{$ticket->ticTopic}}</p>
                     </div>
                 </a>
             </div>

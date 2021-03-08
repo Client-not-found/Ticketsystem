@@ -31,49 +31,49 @@
                     <div class="row">
                         <div class="col-md-6">
                             <label for="username">Username</label>
-                            <input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
+                            <input type="text" class="form-control" id="username" name="username" value="{{$user->useUsername}}" required>
                         </div>
                         <div class="col-md-6">
                             <label for="password">Password</label>
-                            <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                         </div>
                     </div>
                     <br>
                     <div class="form-group col-md-12">
                         <label for="mail">Email</label>
-                        <input type="email" class="form-control" id="mail" name="mail" placeholder="example@example.ch" required>
+                        <input type="email" class="form-control" id="mail" name="mail" value="{{$user->useMail}}" required>
                     </div>
                     <br>
                     <div class="row">
                         <div class="col-md-6">
                             <label for="firstname">Firstname</label>
-                            <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Max" required>
+                            <input type="text" class="form-control" id="firstname" name="firstname" value="{{$user->useFirstname}}" required>
                         </div>
                         <div class="col-md-6">
                             <label for="lastname">Lastname</label>
-                            <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Mustermann" required>
+                            <input type="text" class="form-control" id="lastname" name="lastname" value="{{$user->useLastname}}" required>
                         </div>
                     </div>
                     <br>
                     <div class="row">
                         <div class="col-md-6">
                             <label for="street">Street / Nr.</label>
-                            <input type="text" class="form-control" id="street" name="street" placeholder="Musterstrasse 1" required>
+                            <input type="text" class="form-control" id="street" name="street" value="{{$user->useStreet}}" required>
                         </div>
                         <div class="col-md-6">
                             <label for="state">State</label>
-                            <input type="text" class="form-control" id="state" name="state" placeholder="Switzerland" required>
+                            <input type="text" class="form-control" id="state" name="state" value="{{$user->useState}}" required>
                         </div>
                     </div>
                     <br>
                     <div class="row">
                         <div class="col-md-4">
                             <label for="zip">ZIP</label>
-                            <input type="text" class="form-control" id="zip" name="zip" placeholder="0000" required>
+                            <input type="text" class="form-control" id="zip" name="zip" value="{{$user->useZIP}}" required>
                         </div>
                         <div class="col-md-8">
                             <label for="city">City</label>
-                            <input type="text" class="form-control" id="city" name="city" placeholder="Basel" required>
+                            <input type="text" class="form-control" id="city" name="city" value="{{$user->useCity}}" required>
                         </div>
                     </div>
                     <br>

@@ -14,11 +14,12 @@ class CreateTicketsTable extends Migration
     public function up()
     {
         Schema::create('tickets', function (Blueprint $table) {
-            $table->increments('ticKey');
-            $table->integer('ticUseId');
+            $table->id('ticKey');
+            $table->unsignedBigInteger('ticUseId');
             $table->string('ticTopic');
             $table->string('ticStatus');
-            $table->timestamp('created_at')->nullable();
+            $table->timestamps();
+            $table->foreign('ticUseId')->references('useKey')->on('users');
         });
     }
 

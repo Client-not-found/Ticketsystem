@@ -42,10 +42,10 @@
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 
-<div class="footer col-md-12">
+<footer class="footer col-md-12">
     <nav class=" navbar-dark bg-dark text-white">
         <p class="text-center">(c)-2021 Nicolas Rhyner | Ticketsystem </p>
     </nav>
-</div>
+</footer>
 
 </html>

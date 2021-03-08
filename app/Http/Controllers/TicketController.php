@@ -31,7 +31,7 @@ class TicketController extends Controller {
     public function save ( Request $request ) {
         //dd( $request->subject );
         Ticket::create([
-            'ticSubject' => $request->ticSubject,
+            'ticTopic' => $request->ticTopic,
             'ticDepartement' => $request->ticDepartement, 
             'ticStatus' => 'Open',
         ]);
@@ -41,7 +41,7 @@ class TicketController extends Controller {
     {
 
         return view('ticketDetails', [
-            'ticket' => Ticket::where( "ticId", $id )->first()
+            'ticket' => Ticket::where( "ticKey", $id )->first()
         ]);
 
     }

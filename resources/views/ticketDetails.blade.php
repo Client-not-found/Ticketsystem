@@ -33,7 +33,7 @@
                             <h6 class="card-subtitle mb-2">Departement</h6>
                             <p class="card-text">{{$ticket->ticDepartement}}</p>
                             <h6 class="card-subtitle mb-2">Subject</h6>
-                            <p class="card-text">{{$ticket->ticSubject}}</p>
+                            <p class="card-text">{{$ticket->ticTopic}}</p>
                         </div>
                     </div>
                 </div>

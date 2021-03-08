@@ -14,8 +14,8 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->increments('useKey');
-            $table->integer('useGroId');
+            $table->id('useKey');
+            $table->unsignedBigInteger('useGroId');
             $table->string('useUsername');
             $table->string('usePassword');
             $table->string('useFirstname');
@@ -25,6 +25,8 @@ class CreateUsersTable extends Migration
             $table->string('useCity');
             $table->string('useState');
             $table->string('useMail');
+            $table->timestamps();
+            $table->foreign('useGroId')->references('groKey')->on('groups');
         });
     }
 

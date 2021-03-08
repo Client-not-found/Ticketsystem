@@ -30,29 +30,21 @@
             <thead>
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Firstname</th>
-                    <th scope="col">Lastname</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Status</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                </tr>
-            </tbody>
         </table>
+        @foreach($categories as $category)
+        <div class="list-group-item list-group-item-action" aria-current="true">
+            <a href="/category/{{$category->catKey}}">
+                <div class="row">
+                    <b class="col-md-2">{{$category->catKey}}</b>
+                    <p class="col-md-5">{{$category->catName}}</p>
+                    <p class="col-md-5">{{$category->catActive}}</p>
+                </div>
+            </a>
         </div>
+        @endforeach
     </body>
-
     @endsection
