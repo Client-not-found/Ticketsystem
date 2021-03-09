@@ -19,7 +19,7 @@ class CreateArticlesTable extends Migration
             $table->unsignedBigInteger('artCatId');
             $table->string('artTopic');
             $table->mediumtext('artMessage');
-            $table->timestamp('created_at')->nullable();
+            $table->timestamps();
             $table->foreign('artUseId')->references('useKey')->on('users');
             $table->foreign('artCatId')->references('catKey')->on('categories');
         });

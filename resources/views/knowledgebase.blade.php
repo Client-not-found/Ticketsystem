@@ -15,20 +15,20 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">{{$category->catName}}</th>
+                    <th scope="col-md-12">{{$category->catName}}</th>
                 </tr>
                 <button type="button" class="btn btn-success" @click="newArticle">Create new ticket</button>
-                @foreach($articles as $article)
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-            </tbody>
-            @endforeach
+            </thead>
         </table>
+        @foreach($articles as $article)
+        <div class="list-group-item list-group-item-action" aria-current="true">
+            <a href="/article/{{$article->artKey}}">
+                <div class="row">
+                    <b class="col-md-12">{{$article->artTopic}}</b>
+                </div>
+            </a>
+        </div>
+        @endforeach
         @endforeach
     </body>
     @endsection

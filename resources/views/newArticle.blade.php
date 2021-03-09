@@ -8,10 +8,11 @@
     <body>
         <div class="card">
             <div class="card-body">
-                <form>
+                <form method="post" action="/knowledgebase">
+                    @csrf
                     <div class="form-group col-md-6">
                         <label for="category">Category</label>
-                        <select id="category" class="form-control">
+                        <select id="category" name="category" class="form-control">
                             @foreach($categories as $category)
                             <option value="{{$category->catKey}}">{{$category->catName}}</option>
                             @endforeach

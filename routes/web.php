@@ -61,6 +61,8 @@ Route::get('/newarticle', [ArticleController::class, 'newArticle'] );
 
 Route::post('/knowledgebase', [ArticleController::class, 'save'] );
 
+Route::get('/article/{id}', [ArticleController::class, 'articleDetails'] );
+
 //DashboardController Routen
 Route::get('/acp', [DashboardController::class, 'acp'] );
 
