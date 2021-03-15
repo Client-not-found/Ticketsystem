@@ -1,12 +1,16 @@
 <?php
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Ticket;
+use App\Models\User;
 
 
 class TicketController extends Controller {
     public function newTicket () {
-        return view('newTicket');
+        return view('newTicket',[
+            'users' => User::all(),
+        ]);
     }
 
     public function tickets () {
@@ -29,12 +33,16 @@ class TicketController extends Controller {
     }
 
     public function save ( Request $request ) {
-        //dd( $request->subject );
+        //dd( Auth::user() );
         Ticket::create([
-            'ticTopic' => $request->ticTopic,
-            'ticUseId' => 'auth()->user()->useKey',
-            'ticDepartement' => $request->ticDepartement, 
+            'ticTopic' => $request->subject,
+            'ticUseId' => $request->user,
+            'ticDepartement' => $request->departement, 
             'ticStatus' => 'Open',
+        ]);
+
+        return view('tickets',[
+            'tickets' => Ticket::all(),
         ]);
     }
 

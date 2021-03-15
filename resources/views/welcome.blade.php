@@ -19,6 +19,7 @@
 
 </style>
 <body>
+
     <div class="container">
         <br>
         <div class="text-center">
@@ -29,11 +30,11 @@
         <div class="card card-center col-md-3">
             <div class="card-body">
                 <h5 class="card-title text-center">Login</h5>
-                <form method="POST" action="/dashboard">
+                <form method="POST" action="/login">
                     @csrf
                     <div class="form-group">
-                        <label for="username">Username</label>
-                        <input type="text" class="form-control" id="username" name="username">
+                        <label for="useusername">Username</label>
+                        <input type="text" class="form-control" id="useusername" name="useusername">
                     </div>
                     <br>
                     <div class="form-group">
@@ -41,8 +42,18 @@
                         <input type="password" class="form-control" id="password" name="password">
                     </div>
                     <br>
-                    <button type="submit" class="btn btn-primary" @click="login">Login</button>
+                    <button type="submit" class="btn btn-primary">Login</button>
                 </form>
+
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
             </div>
         </div>
     </div>

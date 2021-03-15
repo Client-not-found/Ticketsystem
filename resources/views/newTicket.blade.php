@@ -21,13 +21,23 @@
                             <input type="text" class="form-control" name="subject" id="subject" placeholder="A brief, pithy description of your request" required>
                         </div>
                         <br>
-                        <div class="form-group">
-                            <label for="departement">Departement</label>
-                            <select class="form-control" id="departement" name="departement" required>
-                                <option value="1">General Support</option>
-                                <option value="2">Technical Support</option>
-                                <option value="3">Feedback</option>
-                            </select>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="departement">Departement</label>
+                                <select class="form-control" id="departement" name="departement" required>
+                                    <option value="1">General Support</option>
+                                    <option value="2">Technical Support</option>
+                                    <option value="3">Feedback</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="user">User</label>
+                                <select class="form-control" id="user" name="user">
+                                    @foreach($users as $user)
+                                    <option value="{{$user->useKey}}">{{$user->useUsername}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
                         <br>
                         <div class="form-group">

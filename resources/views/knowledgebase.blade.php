@@ -17,7 +17,7 @@
                 <tr>
                     <th scope="col-md-12">{{$category->catName}}</th>
                 </tr>
-                <button type="button" class="btn btn-success" @click="newArticle">Create new ticket</button>
+                <button type="button" class="btn btn-success" @click="newArticle">Create new article</button>
             </thead>
         </table>
         @foreach($articles as $article)

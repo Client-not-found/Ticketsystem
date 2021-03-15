@@ -10,24 +10,6 @@ use App\Models\User;
 
 class UserController extends Controller
 {
-    public function login ( Request $request) {
-        //dd($request->password);
-        $request->validate([
-            'username' => 'required',
-            'password' => 'required',
-        ]);
-
-        if (Auth::attempt(['useUsername' => $request->username, 'password' => $request->password])) {
-            $request->session()->regenerate();
-
-            return redirect ('dashboard');
-        }
-
-        return back()->withErrors([
-            'useUsername' => 'Login Fehlgeschlagen',
-        ]);
-    }
-
     public function admin() {
         return view('acp.user',[
         'users' => User::all(),

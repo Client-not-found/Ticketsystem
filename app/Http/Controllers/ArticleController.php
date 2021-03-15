@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Article;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ArticleController extends Controller
 {
@@ -22,6 +23,7 @@ class ArticleController extends Controller
             'artMessage' => $request->message,
         ]);   
 
+
         return view('knowledgebase', [
             'categories' => Category::where( "catActive", '=', 1)->get(),
             'articles' => Article::all()
@@ -32,7 +34,7 @@ class ArticleController extends Controller
     {
 
         return view('article', [
-            'article' => Article::where( "artKey", $id )->first()
+            'article' => Article::where( "artKey", $id )->join('users', 'articles.artKey', '=', 'users.useKey')->join('groups', 'users.useGroId', '=', 'groups.groKey')->first()
         ]);
 
     }
