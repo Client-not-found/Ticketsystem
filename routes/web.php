@@ -25,28 +25,31 @@ Route::get('/', function () {
 });
 
 //UserController Routen
-Route::post('/dashboard', [UserController::class, 'login'] );
 
 Route::get('/usermanagement', [UserController::class, 'admin'] );
 
 Route::get('/newuser', [UserController::class, 'newUser'] );
 
-Route::post('/newuser', [UserController::class, 'acpSave'] );
-
 Route::get('/user/{id}', [UserController::class, 'userDetails'] );
+
+Route::post('/dashboard', [UserController::class, 'login'] );
+
+Route::post('/newuser', [UserController::class, 'acpSave'] );
 
 //TicketController Routen
 Route::get('/dashboard', [TicketController::class, 'statistics'] );
 
 Route::get('/tickets', [TicketController::class, 'tickets'] );
 
-Route::post('/tickets', [TicketController::class, 'save'] );
-
 Route::get('/newticket', [TicketController::class, 'newTicket'] );
 
 Route::get( '/ticket/{id}', [TicketController::class, 'ticketDetails']);
 
-Route::post('/tickets', [MessageController::class, 'save'] );
+Route::post('/tickets', [TicketController::class, 'save'] );
+
+Route::post('/tickets', [TicketController::class, 'newMessage'] );
+
+Route::post('/tickets', [TicketController::class, 'newStatus'] );
 
 //CategoryController Routen
 Route::get('/knowledgebase', [CategoryController::class, 'showCategories'] );
@@ -55,16 +58,16 @@ Route::get('/knowledgemanagement', [CategoryController::class, 'admin'] );
 
 Route::get('/newcategory', [CategoryController::class, 'newCategory'] );
 
-Route::post('/knowledgemanagement', [CategoryController::class, 'acpSave'] );
-
 Route::get('/category/{id}', [CategoryController::class, 'categoryDetails'] );
+
+Route::post('/knowledgemanagement', [CategoryController::class, 'acpSave'] );
 
 //ArticleController Routen
 Route::get('/newarticle', [ArticleController::class, 'newArticle'] );
 
-Route::post('/knowledgebase', [ArticleController::class, 'save'] );
-
 Route::get('/article/{id}', [ArticleController::class, 'articleDetails'] );
+
+Route::post('/knowledgebase', [ArticleController::class, 'save'] );
 
 //DashboardController Routen
 Route::get('/acp', [DashboardController::class, 'acp'] );

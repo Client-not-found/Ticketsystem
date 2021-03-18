@@ -28,8 +28,8 @@
             <a href="/ticket/{{$ticket->ticKey}}">
                 <div class="row">
                     <b class="col-md-2">{{$ticket->ticKey}}</b>
-                    <p class="col-md-5">{{$ticket->ticDepartement}}</p>
-                    <p class="col-md-5">{{$ticket->ticTopic}}</p>
+                    <p class="col-md-5">{{$ticket->departement->depName}}</p>
+                    <p class="col-md-5">{{$ticket->ticSubject}}</p>
                 </div>
             </a>
         </div>

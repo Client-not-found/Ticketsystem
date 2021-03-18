@@ -10,4 +10,9 @@ class Message extends Model
     use HasFactory;
 
     protected $fillable = ['mesKey', 'mesTicId', 'mesUseId', 'mesMessage'];
+
+    public function user()
+    {
+        return $this->hasOne(USER::class, 'useKey', 'mesUseId');
+    }
 }

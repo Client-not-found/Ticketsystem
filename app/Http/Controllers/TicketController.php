@@ -8,6 +8,7 @@ use App\Models\Ticket;
 use App\Models\User;
 use App\Models\Message;
 use App\Models\Departement;
+use Illuminate\Support\Facades\DB;
 
 
 class TicketController extends Controller {
@@ -44,7 +45,7 @@ class TicketController extends Controller {
             'ticDepId' => $request->departement, 
             'ticStatus' => 'Open',
         ]);
-        dd( $ticket );
+        //dd( $ticket );
         
         Message::create([
             'mesTicId' => $ticket->id,
@@ -53,7 +54,7 @@ class TicketController extends Controller {
         ]);
 
         return view('tickets',[
-            'tickets' => Ticket::all()->join('departements', 'tickets.ticDepId', '=' , 'departements.depKey'),
+            'tickets' => Ticket::all(),
         ]);
     }
 
@@ -63,7 +64,34 @@ class TicketController extends Controller {
         return view('ticketDetails', [
             'ticket' => Ticket::where( "ticKey", $id )->first(),
             'messages' => Message::where('mesTicId', $id)->get(),
+            'users' => User::all(),
         ]);
 
+    }
+
+    public function newMessage(Request $request)
+    {
+
+        Message::create([
+            'mesTicId' => $request->ticId,
+            'mesUseId' => $request->user,
+            'mesMessage' => $request->message,
+        ]);
+
+        return view('tickets',[
+            'tickets' => Ticket::all(),
+        ]);
+    }
+
+    public function newStatus(Request $request)
+    {
+
+        DB::table('tickets')
+        ->where('ticKey', $request->ticId)
+        ->update(['ticStatus' => $request->status]);
+
+        return view('tickets',[
+            'tickets' => Ticket::all(),
+        ]);
     }
 }
