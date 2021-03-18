@@ -25,9 +25,9 @@
                             <div class="form-group col-md-6">
                                 <label for="departement">Departement</label>
                                 <select class="form-control" id="departement" name="departement" required>
-                                    <option value="1">General Support</option>
-                                    <option value="2">Technical Support</option>
-                                    <option value="3">Feedback</option>
+                                    @foreach($departements as $departement)
+                                    <option value="{{$departement->depKey}}">{{$departement->depName}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="form-group col-md-6">

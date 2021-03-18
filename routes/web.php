@@ -6,6 +6,7 @@ use App\Http\Controllers\TicketController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\MessageController;
 
 
 /*
@@ -44,6 +45,8 @@ Route::post('/tickets', [TicketController::class, 'save'] );
 Route::get('/newticket', [TicketController::class, 'newTicket'] );
 
 Route::get( '/ticket/{id}', [TicketController::class, 'ticketDetails']);
+
+Route::post('/tickets', [MessageController::class, 'save'] );
 
 //CategoryController Routen
 Route::get('/knowledgebase', [CategoryController::class, 'showCategories'] );

@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration
             $table->unsignedBigInteger('useGroId');
             $table->string('useUsername');
             $table->string('usePassword');
+            $table->string('usePassword_confirmation');
             $table->string('useFirstname');
             $table->string('useLastname');
             $table->string('useStreet');

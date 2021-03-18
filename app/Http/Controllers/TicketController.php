@@ -2,20 +2,25 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Collection;
 use App\Models\Ticket;
 use App\Models\User;
+use App\Models\Message;
+use App\Models\Departement;
 
 
 class TicketController extends Controller {
     public function newTicket () {
         return view('newTicket',[
             'users' => User::all(),
+            'departements' => Departement::all(),
         ]);
     }
 
     public function tickets () {
         return view('tickets',[
-            'tickets' => Ticket::all(),
+            'tickets' => Ticket::all()//->has(Departements::class, 'mesKey', 'ticMesId'),
         ]);
     }
 
@@ -33,16 +38,22 @@ class TicketController extends Controller {
     }
 
     public function save ( Request $request ) {
-        //dd( Auth::user() );
-        Ticket::create([
-            'ticTopic' => $request->subject,
+        $ticket = Ticket::create([
+            'ticSubject' => $request->subject,
             'ticUseId' => $request->user,
-            'ticDepartement' => $request->departement, 
+            'ticDepId' => $request->departement, 
             'ticStatus' => 'Open',
+        ]);
+        dd( $ticket );
+        
+        Message::create([
+            'mesTicId' => $ticket->id,
+            'mesUseId' => $request->user,
+            'mesMessage' => $request->message,
         ]);
 
         return view('tickets',[
-            'tickets' => Ticket::all(),
+            'tickets' => Ticket::all()->join('departements', 'tickets.ticDepId', '=' , 'departements.depKey'),
         ]);
     }
 
@@ -50,7 +61,8 @@ class TicketController extends Controller {
     {
 
         return view('ticketDetails', [
-            'ticket' => Ticket::where( "ticKey", $id )->first()
+            'ticket' => Ticket::where( "ticKey", $id )->first(),
+            'messages' => Message::where('mesTicId', $id)->get(),
         ]);
 
     }

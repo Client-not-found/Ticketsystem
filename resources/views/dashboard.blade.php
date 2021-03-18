@@ -58,7 +58,7 @@
                 <a href="/ticket/{{$ticket->ticKey}}">
                     <div class="row">
                         <b class="col-md-2">{{$ticket->ticKey}}</b>
-                        <p class="col-md-5">{{$ticket->ticDepartement}}</p>
+                        <p class="col-md-5">{{$ticket->depName}}</p>
                         <p class="col-md-5">{{$ticket->ticTopic}}</p>
                     </div>
                 </a>
