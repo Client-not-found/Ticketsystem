@@ -29,6 +29,8 @@
             </a>
         </div>
         @endforeach
+        <br>
+        <hr>
         @endforeach
     </body>
     @endsection

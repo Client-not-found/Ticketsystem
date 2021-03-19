@@ -17,6 +17,7 @@
                             <p class="card-text">{{$message->mesMessage}}</p>
                         </div>
                     </div>
+                    <br>
                 </div>
                 @endforeach
                 <div class="col-md-4">
@@ -31,7 +32,7 @@
                             <hr>
                             <p class="card-subtitle mb-2"> Manage Ticket </p>
                             @if ($ticket->ticStatus === 'Open')
-                            <form method="post" action="/tickets">
+                            <form method="post" action="/newstatus">
                                 @csrf
                                 <div class="form-group">
                                     <input type="hidden" id="status" name="status" value="Close">
@@ -56,7 +57,7 @@
                     @if ($ticket->ticStatus === 'Open')
                     <div class="card">
                         <div class="card-body">
-                            <form method="post" action="/tickets">
+                            <form method="post" action="/newmessage">
                                 @csrf
                                 <div class="form-group col-md-6">
                                     <label for="user">User</label>
@@ -75,7 +76,7 @@
                                     <input type="hidden" id="ticId" name="ticId" value="{{ $ticket->ticKey}}">
                                 </div>
                                 <br>
-                                <button type="submit" @click="save" class="btn btn-outline-success">Submit</button>
+                                <button type="submit" @click="newMessage" class="btn btn-outline-success">Submit</button>
                             </form>
                         </div>
                     </div>
@@ -84,6 +85,9 @@
                         <p>The ticket is closed, you can no longer reply to it. If you want to add a reply open the ticket again.</p>
                     </div>
                     @endif
+                    <br>
+                    <br>
+                    <br>
                 </div>
             </div>
         </div>

@@ -24,6 +24,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//Route::middleware( ['auth'] )->group( function()  {
+
 //UserController Routen
 
 Route::get('/usermanagement', [UserController::class, 'admin'] );
@@ -47,9 +49,9 @@ Route::get( '/ticket/{id}', [TicketController::class, 'ticketDetails']);
 
 Route::post('/tickets', [TicketController::class, 'save'] );
 
-Route::post('/tickets', [TicketController::class, 'newMessage'] );
+Route::post('/newmessage', [TicketController::class, 'newMessage'] );
 
-Route::post('/tickets', [TicketController::class, 'newStatus'] );
+Route::post('/newstatus', [TicketController::class, 'newStatus'] );
 
 //CategoryController Routen
 Route::get('/knowledgebase', [CategoryController::class, 'showCategories'] );
@@ -74,3 +76,4 @@ Route::get('/acp', [DashboardController::class, 'acp'] );
 
 Route::post('/user', [UserController::class, 'acpSave'] );
 
+//});
