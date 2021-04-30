@@ -41,7 +41,7 @@
                                 <button type="submit" class="btn btn-warning" @click="newStatus">Close Ticket</button>
                             </form>
                             @else
-                            <form method="post" action="/tickets">
+                            <form method="post" action="/newstatus">
                                 @csrf
                                 <div class="form-group">
                                     <input type="hidden" id="status" name="status" value="Open">
