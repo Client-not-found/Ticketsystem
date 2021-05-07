@@ -38,6 +38,8 @@ Route::post('/dashboard', [UserController::class, 'login'] );
 
 Route::post('/newuser', [UserController::class, 'acpSave'] );
 
+Route::post('/edit', [UserController::class, 'acpEdit'] );
+
 //TicketController Routen
 Route::get('/dashboard', [TicketController::class, 'statistics'] );
 

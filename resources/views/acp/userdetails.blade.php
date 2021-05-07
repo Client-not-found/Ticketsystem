@@ -20,13 +20,13 @@
         </ul>
         <br>
         <div class="text-center">
-            <h4>Create new User</h4>
-            <p>Here you can create a new user.</P>
+            <h4>Edit User</h4>
+            <p>Here you can edit the user.</P>
         </div>
         <br>
         <div class="card col-md-6 offset-md-3">
             <div class="card-body">
-                <form method="post" action="/user">
+                <form method="post" action="/edit">
                     @csrf
                     <div class="row">
                         <div class="col-md-6">
@@ -90,7 +90,7 @@
                     <br>
                     <div class="row">
                         <div class="col-md-6">
-                            <button type="submit" @click="save" class="btn btn-outline-success">Send</button>
+                            <button type="submit" @click="edit" class="btn btn-outline-warning">Edit</button>
                         </div>
                     </div>
                 </form>
