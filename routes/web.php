@@ -40,6 +40,8 @@ Route::post('/newuser', [UserController::class, 'acpSave'] );
 
 Route::post('/edit', [UserController::class, 'acpEdit'] );
 
+Route::post('/delete', [UserController::class, 'acpDelete'] );
+
 //TicketController Routen
 Route::get('/dashboard', [TicketController::class, 'statistics'] );
 

@@ -28,6 +28,7 @@
             <div class="card-body">
                 <form method="post" action="/edit">
                     @csrf
+                    <input type="hidden" id="useKey" name="useKey" value="{{$user->useKey}}">
                     <div class="row">
                         <div class="col-md-6">
                             <label for="username">Username</label>
@@ -89,9 +90,16 @@
                     </div>
                     <br>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-2">
                             <button type="submit" @click="edit" class="btn btn-outline-warning">Edit</button>
                         </div>
+                    </div>
+                </form>
+                <form method="post" action="/delete">
+                    @csrf
+                    <input type="hidden" id="useKey" name="useKey" value="{{$user->useKey}}">
+                    <div class="col-md-2">
+                        <button type="submit" @click="acpDelete" class="btn btn-outline-danger">Delete</button>
                     </div>
                 </form>
             </div>

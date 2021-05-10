@@ -27,7 +27,7 @@
         <h4>Software</h4>
         <hr>
         <b>Ticketsystem Version:</b>
-        <p>2.0</p>
+        <p>2.1</p>
         <br>
         <b>Software developed by: </b>
         <p>Nicolas Rhyner</p>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\Models\Ticket;
 use App\Models\Group;
 use App\Models\User;
@@ -36,8 +37,6 @@ class UserController extends Controller
         $request->validate([
             'group' => 'required',
             'username' => 'required',
-            'password' => 'required',
-            'password_confirmation' => 'required',
             'firstname' => 'required',
             'lastname' => 'required',
             'street' => 'required',
@@ -48,18 +47,26 @@ class UserController extends Controller
         ]);
 
         DB::table('users')
-            ->where('useKey', 1)
-            ->update(['useGroId' => $request->group],
-            ['useUsername' => $request->username], 
-            ['usePassword' => bcrypt( $request->password )],
-            ['usepassword_confirmation'=> bcrypt( $request->password_confirmation)],
-            ['useFirstname' => $request->firstname],
-            ['useLastname' => $request->lastname],
-            ['useStreet' => $request->street],
-            ['useZIP' => $request->zip],
-            ['useCity' => $request->city],
-            ['useState' => $request->state],
-            ['useMail' => $request->mail]);
+            ->where('useKey', '=', $request->useKey)
+            ->update(['useGroId' => $request->group,
+            'useUsername' => $request->username, 
+            'usePassword' => bcrypt( $request->password ),
+            'useFirstname' => $request->firstname,
+            'useLastname' => $request->lastname,
+            'useStreet' => $request->street,
+            'useZIP' => $request->zip,
+            'useCity' => $request->city,
+            'useState' => $request->state,
+            'useMail' => $request->mail]);
+
+        return view('acp.user', [
+            'users' => User::all(),
+            ]);
+    }
+
+    public function acpDelete ( Request $request ) {
+
+        DB::table('users')->where('useKey', '=', $request->useKey )->delete();
 
         return view('acp.user', [
             'users' => User::all(),
