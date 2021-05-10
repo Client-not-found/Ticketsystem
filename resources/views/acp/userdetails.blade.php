@@ -95,6 +95,7 @@
                         </div>
                     </div>
                 </form>
+                <br>
                 <form method="post" action="/delete">
                     @csrf
                     <input type="hidden" id="useKey" name="useKey" value="{{$user->useKey}}">

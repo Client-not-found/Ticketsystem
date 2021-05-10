@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Article;
@@ -35,6 +36,32 @@ class CategoryController extends Controller
         return view('acp.newcategory');
     }
 
+    public function acpEdit ( Request $request ) {
+        $request->validate([
+            'category' => 'required',
+            'status' => 'required',
+        ]);
+
+        DB::table('categories')
+            ->where('catKey', '=', $request->catKey)
+            ->update(['catName' => $request->category,
+            'catActive' => $request->status]);
+
+        return view('acp.knowledgebase',[
+            'categories' => Category::all(),
+        ]);
+
+    }
+
+    public function acpDelete ( Request $request ) {
+
+        DB::table('categories')->where('catKey', '=', $request->catKey )->delete();
+
+        return view('acp.knowledgebase',[
+            'categories' => Category::all(),
+        ]);
+    }
+
     public function acpSave ( Request $request ) {
         Category::create([
             'catName' => $request->category,
@@ -43,6 +70,6 @@ class CategoryController extends Controller
 
         return view('acp.knowledgebase',[
             'categories' => Category::all(),
-            ]);
+        ]);
     }
 }

@@ -68,6 +68,10 @@ Route::get('/category/{id}', [CategoryController::class, 'categoryDetails'] );
 
 Route::post('/knowledgemanagement', [CategoryController::class, 'acpSave'] );
 
+Route::post('/editCategory', [CategoryController::class, 'acpEdit'] );
+
+Route::post('/deleteCategory', [CategoryController::class, 'acpDelete'] );
+
 //ArticleController Routen
 Route::get('/newarticle', [ArticleController::class, 'newArticle'] );
 

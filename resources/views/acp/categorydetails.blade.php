@@ -26,8 +26,9 @@
     <br>
     <div class="card card-center col-md-6 offset-md-3">
         <div class="card-body">
-            <form method="post" action="/knowledgemanagement">
+            <form method="post" action="/edit">
                 @csrf
+                <input type="hidden" id="catKey" name="catKey" value="{{$category->catKey}}">
                 <div class="form-group">
                     <label for="category">Category Name</label>
                     <input type="text" class="form-control" id="category" name="category" value="{{$category->catName}}" required>
@@ -41,7 +42,15 @@
                     </select>
                 </div>
                 <br>
-                <button type="submit" class="btn btn-outline-success" @click="save">Send</button>
+                <button type="submit" class="btn btn-outline-warning" @click="edit">Edit</button>
+            </form>
+            <br>
+            <form method="post" action="/deleteCategory">
+                @csrf
+                <input type="hidden" id="catKey" name="catKey" value="{{$category->catKey}}">
+                <div class="col-md-2">
+                    <button type="submit" @click="acpDelete" class="btn btn-outline-danger">Delete</button>
+                </div>
             </form>
         </div>
     </div>
