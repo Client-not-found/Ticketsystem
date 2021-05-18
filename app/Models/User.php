@@ -14,6 +14,8 @@ class User extends Authenticatable
     'useFirstname', 'useLastname', 'useStreet', 'useZIP', 'useCity', 'useState',
     'useMail'];
 
+    protected $primaryKey = 'useKey';
+
     public function getAuthPassword()
     {
         return $this->usePassword;

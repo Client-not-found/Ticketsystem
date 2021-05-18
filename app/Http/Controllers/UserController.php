@@ -12,6 +12,7 @@ use App\Models\User;
 class UserController extends Controller
 {
     public function admin() {
+        $this->authorize('admin', User::class);
         return view('acp.user',[
         'users' => User::all(),
         ]);
@@ -106,5 +107,16 @@ class UserController extends Controller
             'users' => User::all(),
             ]);
     }
+
+    public function logout(Request $request)
+{
+    Auth::logout();
+
+    $request->session()->invalidate();
+
+    $request->session()->regenerateToken();
+
+    return redirect('/');
+}
 
 }

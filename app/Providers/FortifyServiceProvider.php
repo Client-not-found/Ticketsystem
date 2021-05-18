@@ -24,7 +24,9 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        Fortify::registerView(function () {
+            return view('acp.newuser');
+        });
     }
 
     /**

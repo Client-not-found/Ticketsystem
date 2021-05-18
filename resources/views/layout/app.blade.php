@@ -12,7 +12,7 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="/dashboard">Ticketsystem</a>
+        <a class="navbar-brand" href="/home">Ticketsystem</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -20,7 +20,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/dashboard">Dashboard</a>
+                    <a class="nav-link" href="/home">Dashboard</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/tickets">Tickets</a>
@@ -28,13 +28,17 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/knowledgebase">Knowledge Base</a>
                 </li>
+                @can('admin', App\Models\User::class)
                 <li class="nav-item">
                     <a class="nav-link" href="/acp">ACP</a>
+                </li>
+                @endcan
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
                 </li>
             </ul>
         </div>
     </nav>
-
     <div class="container" id="app">@yield('content') </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>

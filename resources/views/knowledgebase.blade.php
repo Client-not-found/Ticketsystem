@@ -17,7 +17,9 @@
                 <tr>
                     <th scope="col-md-12">{{$category->catName}}</th>
                 </tr>
+                @canany(['admin', 'employees'], App\Models\User::class)
                 <button type="button" class="btn btn-success" @click="newArticle">Create new article</button>
+                @endcanany
             </thead>
         </table>
         @foreach($articles as $article)

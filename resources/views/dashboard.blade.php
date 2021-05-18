@@ -10,7 +10,7 @@
             <div class="text-center">
                 <br>
                 <h3>Dashboard</h3>
-                <p>Welcome to the Dashboard</p>
+                <p>Welcome {{auth()->user()->useFirstname}} {{auth()->user()->useLastname}}</p>
             </div>
             <br>
             <!-- Statistik -->
@@ -41,7 +41,6 @@
                 </div>
             </div>
             <br>
-
             <!-- Offene Tickets -->
             <h4>Open tickets </h4>
             <table class="table">

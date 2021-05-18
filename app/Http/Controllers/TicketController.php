@@ -26,6 +26,32 @@ class TicketController extends Controller {
     }
 
     public function statistics () {
+
+        return view('dashboard',[
+            'tickets' => Ticket::all(),
+            'countTickets' => Ticket::where('ticUseId', '{{auth()->user()->useKey}}')->count(),
+
+            'openTickets' => Ticket::where("ticStatus", "Open")->where('ticUseId', '{{auth()->user()->useKey}}')->get(),
+            'countOpenTickets' => Ticket::where("ticStatus", "Open")->where('ticUseId', '{{auth()->user()->useKey}}')->count(),
+
+            'closeTickets' => Ticket::where("ticStatus", "Close")->where('ticUseId', '{{auth()->user()->useKey}}')->get(),
+            'countClosedTickets' => Ticket::where("ticStatus", "Close")->where('ticUseId', '{{auth()->user()->useKey}}')->count()
+
+        ]);
+
+        /* $this->authorize('employees', User::class);
+        return view('dashboard',[
+            'tickets' => Ticket::all(),
+            'countTickets' => Ticket::count(),
+
+            'openTickets' => Ticket::where("ticStatus", "Open")->get(),
+            'countOpenTickets' => Ticket::where("ticStatus", "Open")->count(),
+
+            'closeTickets' => Ticket::where("ticStatus", "Close")->get(),
+            'countClosedTickets' => Ticket::where("ticStatus", "Close")->count()
+        ]); */
+
+        $this->authorize('admin', User::class);
         return view('dashboard',[
             'tickets' => Ticket::all(),
             'countTickets' => Ticket::count(),
@@ -36,6 +62,7 @@ class TicketController extends Controller {
             'closeTickets' => Ticket::where("ticStatus", "Close")->get(),
             'countClosedTickets' => Ticket::where("ticStatus", "Close")->count()
         ]);
+
     }
 
     public function save ( Request $request ) {
@@ -45,7 +72,6 @@ class TicketController extends Controller {
             'ticDepId' => $request->departement, 
             'ticStatus' => 'Open',
         ]);
-        //dd( $ticket );
         
         Message::create([
             'mesTicId' => $ticket->id,

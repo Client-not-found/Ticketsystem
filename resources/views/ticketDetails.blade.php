@@ -59,13 +59,8 @@
                         <div class="card-body">
                             <form method="post" action="/newmessage">
                                 @csrf
-                                <div class="form-group col-md-6">
-                                    <label for="user">User</label>
-                                    <select class="form-control" id="user" name="user">
-                                        @foreach($users as $user)
-                                        <option value="{{$user->useKey}}">{{$user->useUsername}}</option>
-                                        @endforeach
-                                    </select>
+                                <div>
+                                    <input type="hidden" id="user" name="user" value="{{auth()->user()->useKey}}">
                                 </div>
                                 <br>
                                 <div class="form-group">

@@ -18,6 +18,7 @@ class CategoryController extends Controller
     }
 
     public function admin() {
+        $this->authorize('admin', User::class);
         return view('acp.knowledgebase',[
             'categories' => Category::all(),
             ]);

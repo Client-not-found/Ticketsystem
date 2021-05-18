@@ -10,4 +10,6 @@ class Group extends Model
     use HasFactory;
 
     protected $fillable = ['groKey', 'groName'];
+    const GROUP_ID_ADMIN = 1;  
+    const GROUP_ID_EMPLOYEES = 2;  
 }

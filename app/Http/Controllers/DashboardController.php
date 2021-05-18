@@ -9,6 +9,7 @@ class DashboardController extends Controller
 {
 
     public function acp () {
+        $this->authorize('admin', User::class);
         return view('acp.dashboard');
     }
 

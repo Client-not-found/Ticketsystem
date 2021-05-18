@@ -24,7 +24,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Route::middleware( ['auth'] )->group( function()  {
+Route::middleware( ['auth'] )->group( function()  {
 
 //UserController Routen
 
@@ -34,7 +34,7 @@ Route::get('/newuser', [UserController::class, 'newUser'] );
 
 Route::get('/user/{id}', [UserController::class, 'userDetails'] );
 
-Route::post('/dashboard', [UserController::class, 'login'] );
+Route::post('/home', [UserController::class, 'login'] );
 
 Route::post('/newuser', [UserController::class, 'acpSave'] );
 
@@ -42,8 +42,10 @@ Route::post('/edit', [UserController::class, 'acpEdit'] );
 
 Route::post('/delete', [UserController::class, 'acpDelete'] );
 
+Route::get('/logout', [UserController::class, 'logout'] );
+
 //TicketController Routen
-Route::get('/dashboard', [TicketController::class, 'statistics'] );
+Route::get('/home', [TicketController::class, 'statistics'] );
 
 Route::get('/tickets', [TicketController::class, 'tickets'] );
 
@@ -84,4 +86,4 @@ Route::get('/acp', [DashboardController::class, 'acp'] );
 
 Route::post('/user', [UserController::class, 'acpSave'] );
 
-//});
+});
