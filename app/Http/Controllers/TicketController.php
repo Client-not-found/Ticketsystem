@@ -20,48 +20,57 @@ class TicketController extends Controller {
     }
 
     public function tickets () {
-        return view('tickets',[
-            'tickets' => Ticket::all()//->has(Departements::class, 'mesKey', 'ticMesId'),
-        ]);
+        if(auth()->user()->useGroId == 2) {
+            return view('tickets',[
+            'tickets' => Ticket::all()
+        ]); } elseif (auth()->user()->useGroId == 1) {
+
+            return view('tickets',[
+            'tickets' => Ticket::all()
+        ]); } else {
+            return view('tickets',[
+            'tickets' => Ticket::where('ticUseId', auth()->user()->useKey)->get()
+            ]); 
+        }
     }
 
     public function statistics () {
 
+        if(auth()->user()->useGroId == 2) {
+            $this->authorize('employees', User::class);
+            return view('dashboard',[
+                'tickets' => Ticket::all(),
+                'countTickets' => Ticket::count(),
+
+                'openTickets' => Ticket::where("ticStatus", "Open")->get(),
+                'countOpenTickets' => Ticket::where("ticStatus", "Open")->count(),
+
+                'closeTickets' => Ticket::where("ticStatus", "Close")->get(),
+                'countClosedTickets' => Ticket::where("ticStatus", "Close")->count()
+        ]); } elseif (auth()->user()->useGroId == 1) {
+
+            return view('dashboard',[
+                'tickets' => Ticket::all(),
+                'countTickets' => Ticket::count(),
+
+                'openTickets' => Ticket::where("ticStatus", "Open")->get(),
+                'countOpenTickets' => Ticket::where("ticStatus", "Open")->count(),
+
+                'closeTickets' => Ticket::where("ticStatus", "Close")->get(),
+                'countClosedTickets' => Ticket::where("ticStatus", "Close")->count()
+        ]); } else {
+
         return view('dashboard',[
             'tickets' => Ticket::all(),
-            'countTickets' => Ticket::where('ticUseId', '{{auth()->user()->useKey}}')->count(),
+            'countTickets' => Ticket::where('ticUseId', auth()->user()->useKey)->count(),
 
-            'openTickets' => Ticket::where("ticStatus", "Open")->where('ticUseId', '{{auth()->user()->useKey}}')->get(),
-            'countOpenTickets' => Ticket::where("ticStatus", "Open")->where('ticUseId', '{{auth()->user()->useKey}}')->count(),
+            'openTickets' => Ticket::where("ticStatus", "Open")->where('ticUseId', auth()->user()->useKey)->get(),
+            'countOpenTickets' => Ticket::where("ticStatus", "Open")->where('ticUseId', auth()->user()->useKey)->count(),
 
-            'closeTickets' => Ticket::where("ticStatus", "Close")->where('ticUseId', '{{auth()->user()->useKey}}')->get(),
-            'countClosedTickets' => Ticket::where("ticStatus", "Close")->where('ticUseId', '{{auth()->user()->useKey}}')->count()
+            'closeTickets' => Ticket::where("ticStatus", "Close")->where('ticUseId', auth()->user()->useKey)->get(),
+            'countClosedTickets' => Ticket::where("ticStatus", "Close")->where('ticUseId', auth()->user()->useKey)->count()
 
-        ]);
-
-        /* $this->authorize('employees', User::class);
-        return view('dashboard',[
-            'tickets' => Ticket::all(),
-            'countTickets' => Ticket::count(),
-
-            'openTickets' => Ticket::where("ticStatus", "Open")->get(),
-            'countOpenTickets' => Ticket::where("ticStatus", "Open")->count(),
-
-            'closeTickets' => Ticket::where("ticStatus", "Close")->get(),
-            'countClosedTickets' => Ticket::where("ticStatus", "Close")->count()
-        ]); */
-
-        $this->authorize('admin', User::class);
-        return view('dashboard',[
-            'tickets' => Ticket::all(),
-            'countTickets' => Ticket::count(),
-
-            'openTickets' => Ticket::where("ticStatus", "Open")->get(),
-            'countOpenTickets' => Ticket::where("ticStatus", "Open")->count(),
-
-            'closeTickets' => Ticket::where("ticStatus", "Close")->get(),
-            'countClosedTickets' => Ticket::where("ticStatus", "Close")->count()
-        ]);
+        ]); }
 
     }
 

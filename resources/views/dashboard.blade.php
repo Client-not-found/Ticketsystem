@@ -13,6 +13,7 @@
                 <p>Welcome {{auth()->user()->useFirstname}} {{auth()->user()->useLastname}}</p>
             </div>
             <br>
+
             <!-- Statistik -->
             <div class="row">
                 <div class="col-md-4">
