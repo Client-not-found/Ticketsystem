@@ -13,10 +13,17 @@ class CategoryTest extends TestCase
      *
      * @return void
      */
-    public function test_example()
+    public function testManagement()
     {
-        $response = $this->get('/');
+        $response = $this->get('/knowledgemanagement');
 
-        $response->assertStatus(200);
+        $response->assertStatus(302);
+    }
+
+    public function testCreate()
+    {
+        $response = $this->get('/newcategory');
+
+        $response->assertStatus(302);
     }
 }

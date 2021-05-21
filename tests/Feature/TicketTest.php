@@ -14,13 +14,30 @@ class TicketTest extends TestCase
      *
      * @return void
      */
-    public function test_example()
+    public function testList()
     {
         $response = $this->get('/tickets');
 
-        $response->assertSeeText('Ticket List');
 
-        $response->assertStatus(200);
+        $response->assertStatus(302);
+        
+    }
+
+    public function testDashboard()
+    {
+        $response = $this->get('/home');
+
+
+        $response->assertStatus(302);
+        
+    }
+
+    public function testCreate()
+    {
+        $response = $this->get('/newTicket');
+
+
+        $response->assertStatus(302);
         
     }
 }

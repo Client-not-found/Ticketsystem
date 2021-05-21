@@ -13,9 +13,17 @@ class ArticleTest extends TestCase
      *
      * @return void
      */
-    public function test_example()
+    public function testKnowledgebase()
     {
         $response = $this->get('/knowledgebase');
+
+        $response->assertStatus(302);
+
+    }
+
+    public function testArticle()
+    {
+        $response = $this->get('/newarticle');
 
         $response->assertStatus(302);
 
