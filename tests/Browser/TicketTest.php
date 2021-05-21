@@ -21,4 +21,22 @@ class TicketTest extends DuskTestCase
                     ->assertSee('Ticket list');
         });
     }
+
+    public function testList(Browser $browser)
+    {
+        $browser->visit('/tickets')->assertTitleContains('Dashboard')
+        ->assertUrlIs('http://localhost:8000/tickets');
+    }
+
+    public function testCreate(Browser $browser)
+    {
+        $browser->visit('/newticket')->assertTitleContains('Create Ticket');
+        $browser->visit('/newticket')->assertUrlIs('http://localhost:8000/newticket');
+    }
+
+    public function testDashboard(Browser $browser)
+    {
+        $browser->visit('/home')->assertTitleContains('Dashboard');
+        $browser->visit('/home')->assertUrlIs('http://localhost:8000/home');
+    }
 }

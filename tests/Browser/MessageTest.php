@@ -20,4 +20,10 @@ class MessageTest extends DuskTestCase
                     ->assertSee('Login');
         });
     }
+
+    public function testHead()
+    {
+        $browser->visit('/newarticle')->assertTitleContains('Ticketsystem');
+        $browser->visit('/newarticle')->assertUrlIs('http://localhost:8000/newarticle');
+    }
 }

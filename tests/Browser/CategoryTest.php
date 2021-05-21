@@ -20,4 +20,16 @@ class CategoryTest extends DuskTestCase
                     ->assertSee('Laravel');
         });
     }
+
+    public function testManagement(Browser $browser)
+    {
+        $browser->visit('/knowledgemanagement')->assertTitleContains('knowledgebase management');
+        $browser->visit('/home')->assertUrlIs('http://localhost:8000/knowledgemanagement');
+    }
+
+    public function testCreate(Browser $browser)
+    {
+        $browser->visit('/newcategory')->assertTitleContains('New Category');
+        $browser->visit('/newcategory')->assertUrlIs('http://localhost:8000/newcategory');
+    }
 }

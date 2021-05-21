@@ -15,7 +15,7 @@ class UserTest extends DuskTestCase
      * @return void
      */
     public function testExample()
-    {
+    { }
 
         public function test_an_action_that_requires_authentication()
         {
@@ -25,4 +25,16 @@ class UserTest extends DuskTestCase
                              ->withSession(['banned' => false])
                              ->get('/');
         }
+
+    public function testManagement(Browser $browser)
+    {
+        $browser->visit('/usermanagement')->assertTitleContains('User management');
+        $browser->visit('/usermanagement')->assertUrlIs('http://localhost:8000/usermanagement');
+    }
+
+    public function testNewuser(Browser $browser)
+    {
+        $browser->visit('/newuser')->assertTitleContains('New User');
+        $browser->visit('/newuser')->assertUrlIs('http://localhost:8000/newuser');
+    }
 }
