@@ -16,7 +16,7 @@ class ArticleTest extends DuskTestCase
     public function testExample()
     {
         $this->browse(function (Browser $browser) {
-            $browser->visit('/')
+            $browser->visitRoute('/newarticle')
                     ->assertSee('Laravel');
         });
     }

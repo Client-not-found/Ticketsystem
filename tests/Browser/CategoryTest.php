@@ -16,7 +16,7 @@ class CategoryTest extends DuskTestCase
     public function testExample()
     {
         $this->browse(function (Browser $browser) {
-            $browser->visit('/')
+            $browser->visit('/newcategory')
                     ->assertSee('Laravel');
         });
     }
