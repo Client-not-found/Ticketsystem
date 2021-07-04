@@ -13,7 +13,7 @@ class CategoryController extends Controller
     public function showCategories () {
         return view('knowledgebase', [
             'categories' => Category::where( "catActive", '=', 1)->get(),
-            'articles' => Article::all()
+            'articles' => Article::all(),
         ]);
     }
 

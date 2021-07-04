@@ -12,17 +12,18 @@
             <p>Welcome to the knowledge base. Here you will find help articles on frequently asked topics.</p>
         </div>
         @foreach($categories as $category)
+        @canany(['admin', 'employees'], App\Models\User::class)
+        <button type="button" class="btn btn-success" @click="newArticle">Create new article</button>
+        @endcanany
         <table class="table">
             <thead>
                 <tr>
                     <th scope="col-md-12">{{$category->catName}}</th>
                 </tr>
-                @canany(['admin', 'employees'], App\Models\User::class)
-                <button type="button" class="btn btn-success" @click="newArticle">Create new article</button>
-                @endcanany
             </thead>
         </table>
         @foreach($articles as $article)
+        @if($article->artCatId === $category->catKey)
         <div class="list-group-item list-group-item-action" aria-current="true">
             <a href="/article/{{$article->artKey}}">
                 <div class="row">
@@ -30,6 +31,7 @@
                 </div>
             </a>
         </div>
+        @endif
         @endforeach
         <br>
         <hr>

@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Hash;
 
 use Illuminate\Database\Seeder;
 
@@ -18,8 +18,8 @@ class UserSeeder extends Seeder
     DB::table('users')->insert([
             [
                 'useGroId' => '1',
-                'useUsername' => 'test',
-                'usePassword' => '$2y$10$J42g0/dzGVX.5R8QwOM4De/w7HbIApBwQp9qJSHc8SOos4cRTu6tO',
+                'useUsername' => 'admin',
+                'usePassword' => Hash::make('admin'),
 
                 'useFirstname' => 'Max',
                 'useLastname' => 'Mustermann',
@@ -29,7 +29,7 @@ class UserSeeder extends Seeder
                 'useCity' => 'Basel',
                 'useState' => 'Switzerland',
 
-                'useMail' => 'test@test.ch',
+                'useMail' => 'admin@test.ch',
             ],
 
         ]);

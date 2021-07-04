@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Ticket;
 use App\Models\Group;
 use App\Models\User;
+use App\Models\Page;
 
 class UserController extends Controller
 {
@@ -33,6 +34,7 @@ class UserController extends Controller
             'groups' => Group::all(),
         ]);
     }
+
 
     public function acpEdit ( Request $request ) {
         $request->validate([
@@ -105,6 +107,46 @@ class UserController extends Controller
 
         return view('acp.user', [
             'users' => User::all(),
+            ]);
+    }
+
+    public function save ( Request $request ) {
+        $request->validate([
+            //dd($request),
+            'username' => 'required',
+            'password' => 'required',
+            'password_confirmation' => 'required',
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'street' => 'required',
+            'zip' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'mail' => 'required',
+        ]);
+        //dd($request->zip);
+        User::create([
+            'useGroId' => '3',
+            'useUsername' => $request->username, 
+            'usePassword' => bcrypt( $request->password ),
+            'usepassword_confirmation'=> bcrypt( $request->password_confirmation),
+            'useFirstname' => $request->firstname,
+            'useLastname' => $request->lastname,
+            'useStreet' => $request->street,
+            'useZIP' => $request->zip,
+            'useCity' => $request->city,
+            'useState' => $request->state,
+            'useMail' => $request->mail,
+        ]);
+
+        return view('welcome', [
+            'login' => Page::where( "pagName", 'Login' )->first(),
+            ]);
+    }
+
+    public function register ( Request $request ) {
+        return view('register', [
+            'login' => Page::where( "pagName", 'Login' )->first(),
             ]);
     }
 

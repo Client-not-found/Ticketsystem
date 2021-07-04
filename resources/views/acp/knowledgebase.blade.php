@@ -17,6 +17,9 @@
             <li class="nav-item">
                 <a class="nav-link active" href="/knowledgemanagement">Knowledge base management</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/settings">Settings</a>
+            </li>
         </ul>
         <br>
         <div class="text-center">

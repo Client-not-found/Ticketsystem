@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8411a3951c694cb3424bbe7021f156f2",
+    "content-hash": "36408540080dfe0b17e2646802e65adf",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -7780,7 +7780,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "froiden/sql-generator": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

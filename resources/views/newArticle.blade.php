@@ -10,6 +10,9 @@
             <div class="card-body">
                 <form method="post" action="/knowledgebase">
                     @csrf
+                    <div>
+                        <input type="hidden" id="user" name="user" value="{{auth()->user()->useKey}}">
+                    </div>
                     <div class="form-group col-md-6">
                         <label for="category">Category</label>
                         <select id="category" name="category" class="form-control">

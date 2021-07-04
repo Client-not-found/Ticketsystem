@@ -27,6 +27,16 @@
                         <p class="card-text">{{$article->useUsername}}</p>
                         <h6 class="card-subtitle mb-2">Benutzergruppe</h6>
                         <p class="card-text">{{$article->groName}}</p>
+                        <hr>
+                        <form method="post" action="/deleteArticle">
+                            @csrf
+                            <input type="hidden" id="artKey" name="artKey" value="{{$article->artKey}}">
+                            <div class="col-md-2">
+                                @canany(['admin', 'employees'], App\Models\User::class)
+                                <button type="submit" @click="artDelete" class="btn btn-outline-danger">Delete</button>
+                                @endcanany
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

@@ -17,12 +17,22 @@ class ArticleController extends Controller
     public function save ( Request $request ) {
         //dd($request->category);
         Article::create([
-            'artUseId' => '1',
+            'artUseId' => $request->user,
             'artCatId' => $request->category,
             'artTopic' => $request->title, 
             'artMessage' => $request->message,
         ]);   
 
+
+        return view('knowledgebase', [
+            'categories' => Category::where( "catActive", '=', 1)->get(),
+            'articles' => Article::all()
+        ]);
+    }
+
+    public function artDelete ( Request $request ) {
+
+        DB::table('articles')->where('artKey', '=', $request->artKey )->delete();
 
         return view('knowledgebase', [
             'categories' => Category::where( "catActive", '=', 1)->get(),

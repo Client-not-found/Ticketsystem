@@ -17,6 +17,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="/knowledgemanagement">Knowledge base management</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/settings">Settings</a>
+            </li>
         </ul>
         <br>
         <div class="text-center">
@@ -27,7 +30,7 @@
         <h4>Software</h4>
         <hr>
         <b>Ticketsystem Version:</b>
-        <p>2.3</p>
+        <p>2.4</p>
         <br>
         <b>Software developed by: </b>
         <p>Nicolas Rhyner</p>

@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             GroupSeeder::class,
             DepartementSeeder::class,
             UserSeeder::class,
+            PageSeeder::class,
         ]);
     }
 }

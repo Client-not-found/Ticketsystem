@@ -7,6 +7,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\SettingController;
 
 
 /*
@@ -20,9 +21,11 @@ use App\Http\Controllers\MessageController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [SettingController::class, 'login'] );
+
+Route::get('/register', [UserController::class, 'register'] );
+
+Route::post('/save', [UserController::class, 'save'] );
 
 Route::middleware( ['auth'] )->group( function()  {
 
@@ -81,9 +84,16 @@ Route::get('/article/{id}', [ArticleController::class, 'articleDetails'] );
 
 Route::post('/knowledgebase', [ArticleController::class, 'save'] );
 
+Route::post('/deleteArticle', [ArticleController::class, 'artDelete'] );
+
 //DashboardController Routen
 Route::get('/acp', [DashboardController::class, 'acp'] );
 
 Route::post('/user', [UserController::class, 'acpSave'] );
+
+//SettingsController Routen
+Route::get('/settings', [SettingController::class, 'acpSettings'] );
+
+Route::post('/settingsEdit', [SettingController::class, 'save'] );
 
 });

@@ -17,6 +17,9 @@
         <li class="nav-item">
             <a class="nav-link active" href="/knowledgemanagement">Knowledge base management</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/settings">Settings</a>
+        </li>
     </ul>
     <br>
     <div class="text-center">
@@ -26,7 +29,7 @@
     <br>
     <div class="card card-center col-md-6 offset-md-3">
         <div class="card-body">
-            <form method="post" action="/edit">
+            <form method="post" action="/editCategory">
                 @csrf
                 <input type="hidden" id="catKey" name="catKey" value="{{$category->catKey}}">
                 <div class="form-group">

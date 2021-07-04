@@ -1,35 +1,44 @@
-    @extends('layout.app')
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="utf-8" lang="de">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
-    @section('content')
-    <header>
-        <title>Ticketsystem | New User</title>
-    </header>
+    <title>Ticketsystem | Login</title>
+</head>
 
-    <body>
-        <br>
-        <ul class="nav nav-tabs">
-            <li class="nav-item">
-                <a class="nav-link" href="/acp">Dashboard</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="/usermanagement">User management</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/knowledgemanagement">Knowledge base management</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/settings">Settings</a>
-            </li>
-        </ul>
+<style>
+    .card {
+        margin: 0 auto;
+        /* Added */
+        float: none;
+        /* Added */
+        margin-bottom: 10px;
+        /* Added */
+    }
+
+</style>
+<body>
+    <div class="container">
         <br>
         <div class="text-center">
-            <h4>Create new User</h4>
-            <p>Here you can create a new user.</P>
+            <h1>Please Login</h1>
         </div>
         <br>
-        <div class="card col-md-6 offset-md-3">
+        <div class="card col-md-6">
             <div class="card-body">
-                <form method="post" action="/user">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item col-md-6">
+                        <a class="nav-link" href="/">Login</a>
+                    </li>
+                    <li class="nav-item col-md-6">
+                        <a class="nav-link active" href="/new">Register</a>
+                    </li>
+                </ul>
+                <br>
+                <h5 class="card-title text-center">Register</h5>
+                <br>
+                <form method="POST" action="/save">
                     @csrf
                     <div class="row">
                         <div class="col-md-6">
@@ -84,27 +93,19 @@
                         </div>
                     </div>
                     <br>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label for="group">Permission Group</label>
-                            <select class="form-control" id="group" name="group" required>
-                                @foreach($groups as $group)
-                                <option value="{{$group->groKey}}">{{$group->groName}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <button type="submit" @click="save" class="btn btn-outline-success">Send</button>
-                        </div>
-                    </div>
+                    <button type="submit" class="btn btn-primary">Register</button>
                 </form>
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
             </div>
-            <br>
         </div>
-        <br>
-        <br>
-    </body>
-    @endsection
+    </div>
+</body>
+</html>
