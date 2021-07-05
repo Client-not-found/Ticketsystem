@@ -13,7 +13,7 @@ use App\Models\Page;
 class UserController extends Controller
 {
     public function admin() {
-        $this->authorize('admin', User::class);
+        $this->authorize('view', User::class);
         return view('acp.user',[
         'users' => User::all(),
         ]);
@@ -21,7 +21,7 @@ class UserController extends Controller
 
     public function userDetails(Request $request, int $id)
     {
-
+        $this->authorize('view', User::class);
         return view('acp.userdetails', [
             'user' => User::where( "useKey", $id )->first(),
             'groups' => Group::all(),
@@ -30,6 +30,7 @@ class UserController extends Controller
     }
 
     public function newUser () {
+        $this->authorize('create', User::class);
         return view('acp.newuser', [
             'groups' => Group::all(),
         ]);
@@ -37,6 +38,7 @@ class UserController extends Controller
 
 
     public function acpEdit ( Request $request ) {
+        $this->authorize('update', User::class);
         $request->validate([
             'group' => 'required',
             'username' => 'required',
@@ -69,6 +71,7 @@ class UserController extends Controller
 
     public function acpDelete ( Request $request ) {
 
+        $this->authorize('delete', User::class);
         DB::table('users')->where('useKey', '=', $request->useKey )->delete();
 
         return view('acp.user', [
@@ -77,6 +80,8 @@ class UserController extends Controller
     }
 
     public function acpSave ( Request $request ) {
+
+        $this->authorize('create', User::class);
         $request->validate([
             'group' => 'required',
             'username' => 'required',
@@ -111,6 +116,7 @@ class UserController extends Controller
     }
 
     public function save ( Request $request ) {
+
         $request->validate([
             //dd($request),
             'username' => 'required',

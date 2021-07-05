@@ -12,9 +12,9 @@
             <p>Welcome to the knowledge base. Here you will find help articles on frequently asked topics.</p>
         </div>
         @foreach($categories as $category)
-        @canany(['admin', 'employees'], App\Models\User::class)
+        @can('create', App\Article::class)
         <button type="button" class="btn btn-success" @click="newArticle">Create new article</button>
-        @endcanany
+        @endcan
         <table class="table">
             <thead>
                 <tr>

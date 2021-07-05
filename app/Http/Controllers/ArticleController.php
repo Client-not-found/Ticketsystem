@@ -14,7 +14,9 @@ class ArticleController extends Controller
             ]);
     }
 
+    
     public function save ( Request $request ) {
+        $this->authorize('create', Article::class);
         //dd($request->category);
         Article::create([
             'artUseId' => $request->user,
@@ -32,6 +34,7 @@ class ArticleController extends Controller
 
     public function artDelete ( Request $request ) {
 
+    $this->authorize('delete', Article::class);
         DB::table('articles')->where('artKey', '=', $request->artKey )->delete();
 
         return view('knowledgebase', [

@@ -8,18 +8,24 @@
     <body>
         <br>
         <ul class="nav nav-tabs">
-            <li class="nav-item">
-                <a class="nav-link" href="/acp">Dashboard</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="/usermanagement">User management</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/knowledgemanagement">Knowledge base management</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/settings">Settings</a>
-            </li>
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link" href="/acp">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/usermanagement">User management</a>
+                </li>
+                @can('create', App\Category::class)
+                <li class="nav-item">
+                    <a class="nav-link" href="/knowledgemanagement">Knowledge base management</a>
+                </li>
+                @endcan
+                @can('create', App\Page::class)
+                <li class="nav-item">
+                    <a class="nav-link" href="/settings">Settings</a>
+                </li>
+                @endcan
+            </ul>
         </ul>
         <br>
         <div class="text-center">
@@ -27,7 +33,9 @@
             <p>Here you can create new users and edit and delete existing ones.</P>
         </div>
         <br>
+        @can('create', App\User::class)
         <button type="button" class="btn btn-success" @click="newUser">Create new user</button>
+        @endcan
         <br>
         <table class="table">
             <thead>

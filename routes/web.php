@@ -47,6 +47,8 @@ Route::post('/delete', [UserController::class, 'acpDelete'] );
 
 Route::get('/logout', [UserController::class, 'logout'] );
 
+Route::post('/user', [UserController::class, 'acpSave'] );
+
 //TicketController Routen
 Route::get('/home', [TicketController::class, 'statistics'] );
 
@@ -88,8 +90,6 @@ Route::post('/deleteArticle', [ArticleController::class, 'artDelete'] );
 
 //DashboardController Routen
 Route::get('/acp', [DashboardController::class, 'acp'] );
-
-Route::post('/user', [UserController::class, 'acpSave'] );
 
 //SettingsController Routen
 Route::get('/settings', [SettingController::class, 'acpSettings'] );

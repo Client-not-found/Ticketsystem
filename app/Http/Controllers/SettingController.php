@@ -11,6 +11,7 @@ class SettingController extends Controller
 {
 
     public function acpSettings () {
+        $this->authorize('viewAny', Page::class);
         return view('acp.settings', [
             'login' => Page::where( "pagName", 'Login' )->first(),
         ]);
@@ -18,6 +19,8 @@ class SettingController extends Controller
 
     public function save ( Request $request ) {
         //dd($request);
+        $this->authorize('update', Page::class);
+
         $request->validate([
             'status' => 'required',
         ]);

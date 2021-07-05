@@ -14,12 +14,16 @@
             <li class="nav-item">
                 <a class="nav-link" href="/usermanagement">User management</a>
             </li>
+            @can('create', App\Category::class)
             <li class="nav-item">
                 <a class="nav-link" href="/knowledgemanagement">Knowledge base management</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="/settings">Settings</a>
+            @endcan
+            @can('create', App\Page::class)
+            <li class="nav-item active">
+                <a class="nav-link" href="/settings">Settings</a>
             </li>
+            @endcan
         </ul>
         <br>
         <div class="text-center">

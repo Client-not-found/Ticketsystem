@@ -5,7 +5,7 @@ namespace App\Policies;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class UserPolicy
+class CategoryPolicy
 {
     use HandlesAuthorization;
 
@@ -17,7 +17,9 @@ class UserPolicy
      */
     public function viewAny(User $user)
     {
-        //
+        return in_array($user->useGroId, [
+            1,
+        ]);
     }
 
     /**
@@ -27,12 +29,9 @@ class UserPolicy
      * @param  \App\Models\User  $model
      * @return mixed
      */
-    public function view(User $user)
+    public function view(User $user, User $model)
     {
-        return in_array($user->useGroId, [
-            1,
-            2
-        ]);
+        
     }
 
     /**
@@ -44,7 +43,7 @@ class UserPolicy
     public function create(User $user)
     {
         return in_array($user->useGroId, [
-            1
+            1,
         ]);
     }
 
@@ -58,7 +57,7 @@ class UserPolicy
     public function update(User $user)
     {
         return in_array($user->useGroId, [
-            1
+            1,
         ]);
     }
 
@@ -72,7 +71,7 @@ class UserPolicy
     public function delete(User $user)
     {
         return in_array($user->useGroId, [
-            1
+           1,
         ]);
     }
 

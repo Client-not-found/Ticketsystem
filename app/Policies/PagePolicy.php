@@ -2,10 +2,11 @@
 
 namespace App\Policies;
 
+use App\Models\Page;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class UserPolicy
+class PagePolicy
 {
     use HandlesAuthorization;
 
@@ -17,22 +18,21 @@ class UserPolicy
      */
     public function viewAny(User $user)
     {
-        //
+        return in_array($user->useGroId, [
+            1
+        ]);
     }
 
     /**
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\User  $model
+     * @param  \App\Models\Page  $page
      * @return mixed
      */
-    public function view(User $user)
+    public function view(User $user, Page $page)
     {
-        return in_array($user->useGroId, [
-            1,
-            2
-        ]);
+        
     }
 
     /**
@@ -44,7 +44,7 @@ class UserPolicy
     public function create(User $user)
     {
         return in_array($user->useGroId, [
-            1
+            1,
         ]);
     }
 
@@ -52,7 +52,7 @@ class UserPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\User  $model
+     * @param  \App\Models\Page  $page
      * @return mixed
      */
     public function update(User $user)
@@ -66,24 +66,22 @@ class UserPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\User  $model
+     * @param  \App\Models\Page  $page
      * @return mixed
      */
-    public function delete(User $user)
+    public function delete(User $user, Page $page)
     {
-        return in_array($user->useGroId, [
-            1
-        ]);
+        //
     }
 
     /**
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\User  $model
+     * @param  \App\Models\Page  $page
      * @return mixed
      */
-    public function restore(User $user, User $model)
+    public function restore(User $user, Page $page)
     {
         //
     }
@@ -92,10 +90,10 @@ class UserPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\User  $model
+     * @param  \App\Models\Page  $page
      * @return mixed
      */
-    public function forceDelete(User $user, User $model)
+    public function forceDelete(User $user, Page $page)
     {
         //
     }

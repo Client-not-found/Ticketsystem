@@ -11,7 +11,9 @@
         <p>Here you can see your ticket history</p>
     </div>
     <div class="col-md-12">
+        @can('create', App\Ticket::class)
         <button type="button" class="btn btn-success" @click="newTicket">Create new ticket</button>
+        @endcan
         <br>
         <br>
         <table class="table">

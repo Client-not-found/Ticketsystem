@@ -28,7 +28,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/knowledgebase">Knowledge Base</a>
                 </li>
-                @can('admin', App\Models\User::class)
+                @can('view', App\User::class)
                 <li class="nav-item">
                     <a class="nav-link" href="/acp">ACP</a>
                 </li>
