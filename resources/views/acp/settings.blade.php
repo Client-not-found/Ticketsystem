@@ -34,16 +34,16 @@
         <h4>Pages</h4>
         <hr>
         <p>Users can register themselves</p>
-        @if($login->pagStatus == false)
+        @if($login->status == false)
         <form method="post" action="/settingsEdit">
             @csrf
-            <input type="hidden" id="id" name="id" value="{{$login->pagKey}}">
+            <input type="hidden" id="id" name="id" value="{{$login->key}}">
             <button type="submit" class="btn btn-success" name="status" id="status" value="1">Enable</button>
         </form>
-        @elseif($login->pagStatus == true)
+        @elseif($login->status == true)
         <form method="post" action="/settingsEdit">
             @csrf
-            <input type="hidden" id="id" name="id" value="{{$login->pagKey}}">
+            <input type="hidden" id="id" name="id" value="{{$login->key}}">
             <button type="submit" class="btn btn-danger" name="status" id="status" value="0">Disable</button>
         </form>
         @endif

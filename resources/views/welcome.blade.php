@@ -25,7 +25,7 @@
         <div class="text-center">
             <h1>Please Login</h1>
         </div>
-        @if($login->pagStatus == false)
+        @if($login->status == false)
         <div class="text-center">
             <p>If you don't have an account yet please contact a member of our staff</p>
         </div>
@@ -59,7 +59,7 @@
                 @endif
             </div>
         </div>
-        @elseif($login->pagStatus == true)
+        @elseif($login->status == true)
         <br>
         <div class="row">
             <div class="card col-md-5">

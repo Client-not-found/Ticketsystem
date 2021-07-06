@@ -14,9 +14,9 @@ class CreatePagesTable extends Migration
     public function up()
     {
         Schema::create('pages', function (Blueprint $table) {
-            $table->id('pagKey');
-            $table->string('pagName');
-            $table->boolean('pagStatus');
+            $table->id('key');
+            $table->string('name');
+            $table->boolean('status');
             $table->timestamps();
         });
     }

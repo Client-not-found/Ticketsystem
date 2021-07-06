@@ -146,13 +146,13 @@ class UserController extends Controller
         ]);
 
         return view('welcome', [
-            'login' => Page::where( "pagName", 'Login' )->first(),
+            'login' => Page::where( "name", 'Login' )->first(),
             ]);
     }
 
     public function register ( Request $request ) {
         return view('register', [
-            'login' => Page::where( "pagName", 'Login' )->first(),
+            'login' => Page::where( "name", 'Login' )->first(),
             ]);
     }
 

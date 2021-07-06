@@ -13,7 +13,7 @@ class SettingController extends Controller
     public function acpSettings () {
         $this->authorize('viewAny', Page::class);
         return view('acp.settings', [
-            'login' => Page::where( "pagName", 'Login' )->first(),
+            'login' => Page::where( "name", 'Login' )->first(),
         ]);
     }
 
@@ -26,17 +26,17 @@ class SettingController extends Controller
         ]);
 
         DB::table('pages')
-            ->where('pagKey', '=', $request->id)
-            ->update(['pagStatus' => $request->status]);
+            ->where('key', '=', $request->id)
+            ->update(['status' => $request->status]);
 
         return view('acp.settings', [
-            'login' => Page::where( "pagName", 'Login' )->first(),
+            'login' => Page::where( "name", 'Login' )->first(),
         ]);
     }
 
     public function login () {
         return view('welcome', [
-            'login' => Page::where( "pagName", 'Login' )->first(),
+            'login' => Page::where( "name", 'Login' )->first(),
         ]);
     }
 }

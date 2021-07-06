@@ -16,8 +16,8 @@ class PageSeeder extends Seeder
     {
         DB::table('pages')->insert([
             [
-                'pagName' => 'Login',
-                'pagStatus' => true,
+                'name' => 'Login',
+                'status' => true,
             ],
         ]);
     }
