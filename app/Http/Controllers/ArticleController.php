@@ -27,7 +27,7 @@ class ArticleController extends Controller
 
 
         return view('knowledgebase', [
-            'categories' => Category::where( "status", '=', 1)->get(),
+            'categories' => Category::where( "active", '=', 1)->get(),
             'articles' => Article::all()
         ]);
     }
@@ -38,7 +38,7 @@ class ArticleController extends Controller
         DB::table('articles')->where('key', '=', $request->key )->delete();
 
         return view('knowledgebase', [
-            'categories' => Category::where( "status", '=', 1)->get(),
+            'categories' => Category::where( "active", '=', 1)->get(),
             'articles' => Article::all()
         ]);
     }
@@ -47,7 +47,7 @@ class ArticleController extends Controller
     {
 
         return view('article', [
-            'article' => Article::where( "key", $id )->join('users', 'articles.key', '=', 'users.key')->join('groups', 'users.groId', '=', 'groups.key')->first()
+            'article' => Article::where( "articles.key", $id )->join('users', 'articles.useId', '=', 'users.key')->join('groups', 'users.groId', '=', 'groups.key')->first()
         ]);
 
     }

@@ -33,6 +33,11 @@
                     <a class="nav-link" href="/acp">ACP</a>
                 </li>
                 @endcan
+            </ul>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/profile">Profile</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/logout">Logout</a>
                 </li>

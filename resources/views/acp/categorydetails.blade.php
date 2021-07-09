@@ -42,8 +42,8 @@
                 </div>
                 <br>
                 <div class="form-group">
-                    <label for="status">Status</label>
-                    <select class="form-control" id="status" name="status" required>
+                    <label for="active">Status</label>
+                    <select class="form-control" id="active" name="active" required>
                         <option value="1">Enabled</option>
                         <option value="2">Disabled</option>
                     </select>

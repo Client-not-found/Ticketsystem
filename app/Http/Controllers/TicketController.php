@@ -20,7 +20,7 @@ class TicketController extends Controller {
     }
 
     public function tickets () {
-        if(auth()->user()->useGroId == 2 || auth()->user()->useGroId == 1) {
+        if(auth()->user()->groId == 2 || auth()->user()->groId == 1) {
             $this->authorize('viewAny', Ticket::class);
             return view('tickets',[
             'tickets' => Ticket::all()
@@ -35,7 +35,7 @@ class TicketController extends Controller {
 
     public function statistics () {
 
-        if(auth()->user()->useGroId == 2 || auth()->user()->useGroId == 1 ) {
+        if(auth()->user()->groId == 2 || auth()->user()->groId == 1 ) {
             $this->authorize('viewAny', Ticket::class);
             return view('dashboard',[
                 'tickets' => Ticket::all(),
@@ -77,7 +77,7 @@ class TicketController extends Controller {
             'message' => $request->message,
         ]);
 
-        if(auth()->user()->useGroId == 2 || auth()->user()->groId == 1) {
+        if(auth()->user()->groId == 2 || auth()->user()->groId == 1) {
             $this->authorize('viewAny', Ticket::class);
             return view('tickets',[
             'tickets' => Ticket::all()
@@ -118,7 +118,7 @@ class TicketController extends Controller {
     {
         $this->authorize('update', Ticket::class);
         DB::table('tickets')
-        ->where('key', $request->key)
+        ->where('key', $request->id)
         ->update(['status' => $request->status]);
 
         return view('tickets',[

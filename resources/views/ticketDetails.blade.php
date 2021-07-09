@@ -36,7 +36,7 @@
                                 @csrf
                                 <div class="form-group">
                                     <input type="hidden" id="status" name="status" value="Close">
-                                    <input type="hidden" id="ticId" name="ticId" value="{{$ticket->key}}">
+                                    <input type="hidden" id="id" name="id" value="{{$ticket->key}}">
                                 </div>
                                 <button type="submit" class="btn btn-warning" @click="newStatus">Close Ticket</button>
                             </form>
@@ -45,7 +45,7 @@
                                 @csrf
                                 <div class="form-group">
                                     <input type="hidden" id="status" name="status" value="Open">
-                                    <input type="hidden" id="ticId" name="ticId" value="{{$ticket->key}}">
+                                    <input type="hidden" id="id" name="id" value="{{$ticket->key}}">
                                 </div>
                                 <button type="submit" class="btn btn-success" @click="newStatus">Open Ticket</button>
                             </form>

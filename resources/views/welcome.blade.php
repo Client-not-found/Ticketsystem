@@ -36,8 +36,8 @@
                 <form method="POST" action="/login">
                     @csrf
                     <div class="form-group">
-                        <label for="useusername">Username</label>
-                        <input type="text" class="form-control" id="useusername" name="useusername">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" id="username" name="username">
                     </div>
                     <br>
                     <div class="form-group">
@@ -77,8 +77,8 @@
                     <form method="POST" action="/login">
                         @csrf
                         <div class="form-group">
-                            <label for="useusername">Username</label>
-                            <input type="text" class="form-control" id="useusername" name="useusername">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" id="username" name="username">
                         </div>
                         <br>
                         <div class="form-group">

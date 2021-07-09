@@ -12,7 +12,7 @@ class CategoryController extends Controller
 {
     public function showCategories () {
         return view('knowledgebase', [
-            'categories' => Category::where( "status", '=', 1)->get(),
+            'categories' => Category::where( "active", '=', 1)->get(),
             'articles' => Article::all(),
         ]);
     }
@@ -42,13 +42,13 @@ class CategoryController extends Controller
         $this->authorize('update', Category::class);
         $request->validate([
             'category' => 'required',
-            'status' => 'required',
+            'active' => 'required',
         ]);
 
         DB::table('categories')
             ->where('key', '=', $request->key)
             ->update(['name' => $request->category,
-            'status' => $request->status]);
+            'active' => $request->active]);
 
         return view('acp.knowledgebase',[
             'categories' => Category::all(),
@@ -69,7 +69,7 @@ class CategoryController extends Controller
         $this->authorize('create', Category::class);
         Category::create([
             'name' => $request->category,
-            'status' => $request->status,
+            'active' => $request->active,
         ]);
 
         return view('acp.knowledgebase',[

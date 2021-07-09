@@ -31,7 +31,7 @@
                         <hr>
                         <form method="post" action="/deleteArticle">
                             @csrf
-                            <input type="hidden" id="artKey" name="artKey" value="{{$article->key}}">
+                            <input type="hidden" id="key" name="key" value="{{$article->key}}">
                             <div class="col-md-2">
                                 <button type="submit" @click="artDelete" class="btn btn-outline-danger">Delete</button>
                             </div>
