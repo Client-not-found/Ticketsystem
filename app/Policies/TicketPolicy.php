@@ -18,7 +18,7 @@ class TicketPolicy
      */
     public function viewAny(User $user)
     {
-        return in_array($user->useGroId, [
+        return in_array($user->groId, [
             1,
             2,
          ]);
@@ -33,7 +33,7 @@ class TicketPolicy
      */
     public function view(User $user)
     {
-        return in_array($user->useGroId, [
+        return in_array($user->groId, [
             3
          ]);
     }
@@ -46,7 +46,7 @@ class TicketPolicy
      */
     public function create(User $user)
     {
-        return in_array($user->useGroId, [
+        return in_array($user->groId, [
             1,
             2,
             3
@@ -62,7 +62,7 @@ class TicketPolicy
      */
     public function update(User $user)
     {
-        return in_array($user->useGroId, [
+        return in_array($user->groId, [
             1,
             2
          ]);

@@ -35,10 +35,10 @@
         <div class="card-body">
             <form method="post" action="/editCategory">
                 @csrf
-                <input type="hidden" id="catKey" name="catKey" value="{{$category->catKey}}">
+                <input type="hidden" id="key" name="key" value="{{$category->key}}">
                 <div class="form-group">
                     <label for="category">Category Name</label>
-                    <input type="text" class="form-control" id="category" name="category" value="{{$category->catName}}" required>
+                    <input type="text" class="form-control" id="category" name="category" value="{{$category->name}}" required>
                 </div>
                 <br>
                 <div class="form-group">
@@ -54,7 +54,7 @@
             <br>
             <form method="post" action="/deleteCategory">
                 @csrf
-                <input type="hidden" id="catKey" name="catKey" value="{{$category->catKey}}">
+                <input type="hidden" id="key" name="key" value="{{$category->key}}">
                 <div class="col-md-2">
                     <button type="submit" @click="acpDelete" class="btn btn-outline-danger">Delete</button>
                 </div>

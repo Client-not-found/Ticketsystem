@@ -41,7 +41,7 @@ class ArticlePolicy
      */
     public function create(User $user)
     {
-        return in_array($user->useGroId, [
+        return in_array($user->groId, [
             1,
             2
         ]);
@@ -68,7 +68,7 @@ class ArticlePolicy
      */
     public function delete(User $user)
     {
-        return in_array($user->useGroId, [
+        return in_array($user->groId, [
             1,
         ]);
     }

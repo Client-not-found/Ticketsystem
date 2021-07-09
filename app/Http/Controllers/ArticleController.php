@@ -19,15 +19,15 @@ class ArticleController extends Controller
         $this->authorize('create', Article::class);
         //dd($request->category);
         Article::create([
-            'artUseId' => $request->user,
-            'artCatId' => $request->category,
-            'artTopic' => $request->title, 
-            'artMessage' => $request->message,
+            'useId' => $request->user,
+            'catId' => $request->category,
+            'topic' => $request->title, 
+            'message' => $request->message,
         ]);   
 
 
         return view('knowledgebase', [
-            'categories' => Category::where( "catActive", '=', 1)->get(),
+            'categories' => Category::where( "status", '=', 1)->get(),
             'articles' => Article::all()
         ]);
     }
@@ -35,10 +35,10 @@ class ArticleController extends Controller
     public function artDelete ( Request $request ) {
 
     $this->authorize('delete', Article::class);
-        DB::table('articles')->where('artKey', '=', $request->artKey )->delete();
+        DB::table('articles')->where('key', '=', $request->key )->delete();
 
         return view('knowledgebase', [
-            'categories' => Category::where( "catActive", '=', 1)->get(),
+            'categories' => Category::where( "status", '=', 1)->get(),
             'articles' => Article::all()
         ]);
     }
@@ -47,7 +47,7 @@ class ArticleController extends Controller
     {
 
         return view('article', [
-            'article' => Article::where( "artKey", $id )->join('users', 'articles.artKey', '=', 'users.useKey')->join('groups', 'users.useGroId', '=', 'groups.groKey')->first()
+            'article' => Article::where( "key", $id )->join('users', 'articles.key', '=', 'users.key')->join('groups', 'users.groId', '=', 'groups.key')->first()
         ]);
 
     }

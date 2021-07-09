@@ -18,16 +18,16 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col-md-12">{{$category->catName}}</th>
+                    <th scope="col-md-12">{{$category->name}}</th>
                 </tr>
             </thead>
         </table>
         @foreach($articles as $article)
         @if($article->artCatId === $category->catKey)
         <div class="list-group-item list-group-item-action" aria-current="true">
-            <a href="/article/{{$article->artKey}}">
+            <a href="/article/{{$article->key}}">
                 <div class="row">
-                    <b class="col-md-12">{{$article->artTopic}}</b>
+                    <b class="col-md-12">{{$article->topic}}</b>
                 </div>
             </a>
         </div>

@@ -9,10 +9,10 @@ class Message extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['mesKey', 'mesTicId', 'mesUseId', 'mesMessage'];
+    protected $fillable = ['key', 'ticId', 'useId', 'message'];
 
     public function user()
     {
-        return $this->hasOne(USER::class, 'useKey', 'mesUseId');
+        return $this->hasOne(USER::class, 'key', 'useId');
     }
 }

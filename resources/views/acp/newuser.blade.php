@@ -93,7 +93,7 @@
                             <label for="group">Permission Group</label>
                             <select class="form-control" id="group" name="group" required>
                                 @foreach($groups as $group)
-                                <option value="{{$group->groKey}}">{{$group->groName}}</option>
+                                <option value="{{$group->key}}">{{$group->name}}</option>
                                 @endforeach
                             </select>
                         </div>

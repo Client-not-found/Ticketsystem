@@ -16,13 +16,13 @@ class DepartementSeeder extends Seeder
     {
         DB::table('departements')->insert([
             [
-                'depName' => 'Technical Support',
+                'name' => 'Technical Support',
             ],
             [
-                'depName' => 'General Support',
+                'name' => 'General Support',
             ],
             [
-                'depName' => 'Feedback',
+                'name' => 'Feedback',
             ],
         ]);
     }

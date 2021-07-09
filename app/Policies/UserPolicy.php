@@ -29,7 +29,7 @@ class UserPolicy
      */
     public function view(User $user)
     {
-        return in_array($user->useGroId, [
+        return in_array($user->groId, [
             1,
             2
         ]);
@@ -43,7 +43,7 @@ class UserPolicy
      */
     public function create(User $user)
     {
-        return in_array($user->useGroId, [
+        return in_array($user->groId, [
             1
         ]);
     }
@@ -57,7 +57,7 @@ class UserPolicy
      */
     public function update(User $user)
     {
-        return in_array($user->useGroId, [
+        return in_array($user->groId, [
             1
         ]);
     }
@@ -71,7 +71,7 @@ class UserPolicy
      */
     public function delete(User $user)
     {
-        return in_array($user->useGroId, [
+        return in_array($user->groId, [
             1
         ]);
     }

@@ -18,7 +18,7 @@ class PagePolicy
      */
     public function viewAny(User $user)
     {
-        return in_array($user->useGroId, [
+        return in_array($user->groId, [
             1
         ]);
     }
@@ -43,7 +43,7 @@ class PagePolicy
      */
     public function create(User $user)
     {
-        return in_array($user->useGroId, [
+        return in_array($user->groId, [
             1,
         ]);
     }
@@ -57,7 +57,7 @@ class PagePolicy
      */
     public function update(User $user)
     {
-        return in_array($user->useGroId, [
+        return in_array($user->groId, [
             1
         ]);
     }

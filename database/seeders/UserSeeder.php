@@ -17,19 +17,19 @@ class UserSeeder extends Seeder
     {
     DB::table('users')->insert([
             [
-                'useGroId' => '1',
-                'useUsername' => 'admin',
-                'usePassword' => Hash::make('admin'),
+                'groId' => '1',
+                'username' => 'admin',
+                'password' => Hash::make('admin'),
 
-                'useFirstname' => 'Max',
-                'useLastname' => 'Mustermann',
+                'firstname' => 'Max',
+                'lastname' => 'Mustermann',
 
-                'useStreet' => 'Musterstrasse 1',
-                'useZip' => '4057',
-                'useCity' => 'Basel',
-                'useState' => 'Switzerland',
+                'street' => 'Musterstrasse 1',
+                'zip' => '4057',
+                'city' => 'Basel',
+                'state' => 'Switzerland',
 
-                'useMail' => 'admin@test.ch',
+                'mail' => 'admin@test.ch',
             ],
 
         ]);

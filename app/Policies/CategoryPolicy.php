@@ -17,7 +17,7 @@ class CategoryPolicy
      */
     public function viewAny(User $user)
     {
-        return in_array($user->useGroId, [
+        return in_array($user->groId, [
             1,
         ]);
     }
@@ -42,7 +42,7 @@ class CategoryPolicy
      */
     public function create(User $user)
     {
-        return in_array($user->useGroId, [
+        return in_array($user->groId, [
             1,
         ]);
     }
@@ -56,7 +56,7 @@ class CategoryPolicy
      */
     public function update(User $user)
     {
-        return in_array($user->useGroId, [
+        return in_array($user->groId, [
             1,
         ]);
     }
@@ -70,7 +70,7 @@ class CategoryPolicy
      */
     public function delete(User $user)
     {
-        return in_array($user->useGroId, [
+        return in_array($user->groId, [
            1,
         ]);
     }

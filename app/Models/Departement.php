@@ -9,5 +9,5 @@ class Departement extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['depKey', 'depName'];
+    protected $fillable = ['key', 'name'];
 }

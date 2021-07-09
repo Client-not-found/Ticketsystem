@@ -35,11 +35,11 @@
             <div class="card-body">
                 <form method="post" action="/edit">
                     @csrf
-                    <input type="hidden" id="useKey" name="useKey" value="{{$user->useKey}}">
+                    <input type="hidden" id="useKey" name="useKey" value="{{$user->key}}">
                     <div class="row">
                         <div class="col-md-6">
                             <label for="username">Username</label>
-                            <input type="text" class="form-control" id="username" name="username" value="{{$user->useUsername}}" required>
+                            <input type="text" class="form-control" id="username" name="username" value="{{$user->username}}" required>
                         </div>
                         <div class="col-md-6">
                             <label for="password">Password</label>
@@ -49,39 +49,39 @@
                     <br>
                     <div class="form-group col-md-12">
                         <label for="mail">Email</label>
-                        <input type="email" class="form-control" id="mail" name="mail" value="{{$user->useMail}}" required>
+                        <input type="email" class="form-control" id="mail" name="mail" value="{{$user->mail}}" required>
                     </div>
                     <br>
                     <div class="row">
                         <div class="col-md-6">
                             <label for="firstname">Firstname</label>
-                            <input type="text" class="form-control" id="firstname" name="firstname" value="{{$user->useFirstname}}" required>
+                            <input type="text" class="form-control" id="firstname" name="firstname" value="{{$user->firstname}}" required>
                         </div>
                         <div class="col-md-6">
                             <label for="lastname">Lastname</label>
-                            <input type="text" class="form-control" id="lastname" name="lastname" value="{{$user->useLastname}}" required>
+                            <input type="text" class="form-control" id="lastname" name="lastname" value="{{$user->lastname}}" required>
                         </div>
                     </div>
                     <br>
                     <div class="row">
                         <div class="col-md-6">
                             <label for="street">Street / Nr.</label>
-                            <input type="text" class="form-control" id="street" name="street" value="{{$user->useStreet}}" required>
+                            <input type="text" class="form-control" id="street" name="street" value="{{$user->street}}" required>
                         </div>
                         <div class="col-md-6">
                             <label for="state">State</label>
-                            <input type="text" class="form-control" id="state" name="state" value="{{$user->useState}}" required>
+                            <input type="text" class="form-control" id="state" name="state" value="{{$user->state}}" required>
                         </div>
                     </div>
                     <br>
                     <div class="row">
                         <div class="col-md-4">
                             <label for="zip">ZIP</label>
-                            <input type="text" class="form-control" id="zip" name="zip" value="{{$user->useZIP}}" required>
+                            <input type="text" class="form-control" id="zip" name="zip" value="{{$user->zip}}" required>
                         </div>
                         <div class="col-md-8">
                             <label for="city">City</label>
-                            <input type="text" class="form-control" id="city" name="city" value="{{$user->useCity}}" required>
+                            <input type="text" class="form-control" id="city" name="city" value="{{$user->city}}" required>
                         </div>
                     </div>
                     <br>
@@ -90,7 +90,7 @@
                             <label for="group">Permission Group</label>
                             <select class="form-control" id="group" name="group" required>
                                 @foreach($groups as $group)
-                                <option value="{{$group->groKey}}">{{$group->groName}}</option>
+                                <option value="{{$group->key}}">{{$group->name}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -105,7 +105,7 @@
                 <br>
                 <form method="post" action="/delete">
                     @csrf
-                    <input type="hidden" id="useKey" name="useKey" value="{{$user->useKey}}">
+                    <input type="hidden" id="key" name="key" value="{{$user->key}}">
                     <div class="col-md-2">
                         <button type="submit" @click="acpDelete" class="btn btn-outline-danger">Delete</button>
                     </div>

@@ -14,13 +14,13 @@ class CreateMessagesTable extends Migration
     public function up()
     {
         Schema::create('messages', function (Blueprint $table) {
-            $table->id('mesKey');
-            $table->unsignedBigInteger('mesTicId');
-            $table->unsignedBigInteger('mesUseId');
-            $table->mediumtext('mesMessage');
+            $table->id('key');
+            $table->unsignedBigInteger('ticId');
+            $table->unsignedBigInteger('useId');
+            $table->mediumtext('message');
             $table->timestamps();
-            $table->foreign('mesTicId')->references('ticKey')->on('tickets');
-            $table->foreign('mesUseId')->references('useKey')->on('users');
+            $table->foreign('ticId')->references('Key')->on('tickets');
+            $table->foreign('useId')->references('Key')->on('users');
         });
     }
 

@@ -12,9 +12,9 @@
                 @foreach($messages as $message)
                 <div class="col-md-8">
                     <div class="card">
-                        <h5 class="card-header">{{$message->user->useFirstname}} {{$message->user->useLastname}}</h5>
+                        <h5 class="card-header">{{$message->user->firstname}} {{$message->user->lastname}}</h5>
                         <div class="card-body">
-                            <p class="card-text">{{$message->mesMessage}}</p>
+                            <p class="card-text">{{$message->message}}</p>
                         </div>
                     </div>
                     <br>
@@ -24,19 +24,19 @@
                     <div class="card">
                         <div class="card-body">
                             <h6 class="card-subtitle mb-2">Status</h6>
-                            <p class="card-text">{{$ticket->ticStatus}}</p>
+                            <p class="card-text">{{$ticket->status}}</p>
                             <h6 class="card-subtitle mb-2">Departement</h6>
-                            <p class="card-text">{{$ticket->departement->depName}}</p>
+                            <p class="card-text">{{$ticket->departement->name}}</p>
                             <h6 class="card-subtitle mb-2">Subject</h6>
-                            <p class="card-text">{{$ticket->ticSubject}}</p>
+                            <p class="card-text">{{$ticket->subject}}</p>
                             <hr>
                             <p class="card-subtitle mb-2"> Manage Ticket </p>
-                            @if ($ticket->ticStatus === 'Open')
+                            @if ($ticket->status === 'Open')
                             <form method="post" action="/newstatus">
                                 @csrf
                                 <div class="form-group">
                                     <input type="hidden" id="status" name="status" value="Close">
-                                    <input type="hidden" id="ticId" name="ticId" value="{{$ticket->ticKey}}">
+                                    <input type="hidden" id="ticId" name="ticId" value="{{$ticket->key}}">
                                 </div>
                                 <button type="submit" class="btn btn-warning" @click="newStatus">Close Ticket</button>
                             </form>
@@ -45,7 +45,7 @@
                                 @csrf
                                 <div class="form-group">
                                     <input type="hidden" id="status" name="status" value="Open">
-                                    <input type="hidden" id="ticId" name="ticId" value="{{$ticket->ticKey}}">
+                                    <input type="hidden" id="ticId" name="ticId" value="{{$ticket->key}}">
                                 </div>
                                 <button type="submit" class="btn btn-success" @click="newStatus">Open Ticket</button>
                             </form>
@@ -54,13 +54,13 @@
                     </div>
                 </div>
                 <div class="col-md-8">
-                    @if ($ticket->ticStatus === 'Open')
+                    @if ($ticket->status === 'Open')
                     <div class="card">
                         <div class="card-body">
                             <form method="post" action="/newmessage">
                                 @csrf
                                 <div>
-                                    <input type="hidden" id="user" name="user" value="{{auth()->user()->useKey}}">
+                                    <input type="hidden" id="user" name="user" value="{{auth()->user()->key}}">
                                 </div>
                                 <br>
                                 <div class="form-group">
@@ -68,7 +68,7 @@
                                     <textarea class="form-control" id="message" name="message" rows="3" placeholder="Add a new Message"></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <input type="hidden" id="ticId" name="ticId" value="{{ $ticket->ticKey}}">
+                                    <input type="hidden" id="Id" name="Id" value="{{ $ticket->key}}">
                                 </div>
                                 <br>
                                 <button type="submit" @click="newMessage" class="btn btn-outline-success">Submit</button>

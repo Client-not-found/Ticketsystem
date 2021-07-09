@@ -48,11 +48,11 @@
         </table>
         @foreach($users as $user)
         <div class="list-group-item list-group-item-action" aria-current="true">
-            <a href="/user/{{$user->useKey}}">
+            <a href="/user/{{$user->key}}">
                 <div class="row">
-                    <b class="col-md-2">{{$user->useKey}}</b>
-                    <p class="col-md-5">{{$user->useFirstname}}</p>
-                    <p class="col-md-5">{{$user->useLastname}}</p>
+                    <b class="col-md-2">{{$user->key}}</b>
+                    <p class="col-md-5">{{$user->firstname}}</p>
+                    <p class="col-md-5">{{$user->lastname}}</p>
                 </div>
             </a>
         </div>

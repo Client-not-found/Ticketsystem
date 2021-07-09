@@ -16,13 +16,13 @@ class GroupSeeder extends Seeder
     {
         DB::table('groups')->insert([
             [
-                'groName' => 'Administrator',
+                'name' => 'Administrator',
             ],
             [
-                'groName' => 'Employees',
+                'name' => 'Employees',
             ],
             [
-                'groName' => 'Customer',
+                'name' => 'Customer',
             ],
         ]);
     }

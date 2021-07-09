@@ -10,7 +10,7 @@
             <div class="text-center">
                 <br>
                 <h3>Dashboard</h3>
-                <p>Welcome {{auth()->user()->useGroId}} {{auth()->user()->useLastname}}</p>
+                <p>Welcome {{auth()->user()->groId}} {{auth()->user()->lastname}}</p>
             </div>
             <br>
             <!-- Statistik -->
@@ -54,11 +54,11 @@
             </table>
             @foreach($openTickets as $ticket)
             <div class="list-group-item list-group-item-action" aria-current="true">
-                <a href="/ticket/{{$ticket->ticKey}}">
+                <a href="/ticket/{{$ticket->key}}">
                     <div class="row">
-                        <b class="col-md-2">{{$ticket->ticKey}}</b>
-                        <p class="col-md-5">{{$ticket->departement->depName}}</p>
-                        <p class="col-md-5">{{$ticket->ticSubject}}</p>
+                        <b class="col-md-2">{{$ticket->key}}</b>
+                        <p class="col-md-5">{{$ticket->departement->name}}</p>
+                        <p class="col-md-5">{{$ticket->subject}}</p>
                     </div>
                 </a>
             </div>

@@ -12,11 +12,11 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable, TwoFactorAuthenticatable;
 
-    protected $fillable = ['useKey', 'useGroId', 'useUsername', 'usePassword', 
-    'useFirstname', 'useLastname', 'useStreet', 'useZIP', 'useCity', 'useState',
-    'useMail'];
+    protected $fillable = ['key', 'groId', 'username', 'password', 
+    'firstname', 'lastname', 'street', 'zip', 'city', 'state',
+    'mail'];
 
-    protected $primaryKey = 'useKey';
+    protected $primaryKey = 'key';
 
     public function getAuthPassword()
     {

@@ -44,11 +44,11 @@
         </table>
         @foreach($categories as $category)
         <div class="list-group-item list-group-item-action" aria-current="true">
-            <a href="/category/{{$category->catKey}}">
+            <a href="/category/{{$category->key}}">
                 <div class="row">
-                    <b class="col-md-2">{{$category->catKey}}</b>
-                    <p class="col-md-5">{{$category->catName}}</p>
-                    <p class="col-md-5">{{$category->catActive}}</p>
+                    <b class="col-md-2">{{$category->key}}</b>
+                    <p class="col-md-5">{{$category->name}}</p>
+                    <p class="col-md-5">{{$category->status}}</p>
                 </div>
             </a>
         </div>

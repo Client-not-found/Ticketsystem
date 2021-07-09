@@ -14,14 +14,14 @@ class CreateArticlesTable extends Migration
     public function up()
     {
         Schema::create('articles', function (Blueprint $table) {
-            $table->id('artKey');
-            $table->unsignedBigInteger('artUseId');
-            $table->unsignedBigInteger('artCatId');
-            $table->string('artTopic');
-            $table->mediumtext('artMessage');
+            $table->id('key');
+            $table->unsignedBigInteger('useId');
+            $table->unsignedBigInteger('catId');
+            $table->string('topic');
+            $table->mediumtext('message');
             $table->timestamps();
-            $table->foreign('artUseId')->references('useKey')->on('users');
-            $table->foreign('artCatId')->references('catKey')->on('categories');
+            $table->foreign('useId')->references('key')->on('users');
+            $table->foreign('catId')->references('Key')->on('categories');
         });
     }
 

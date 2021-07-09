@@ -14,19 +14,19 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id('useKey');
-            $table->unsignedBigInteger('useGroId');
-            $table->string('useUsername');
-            $table->string('usePassword');
-            $table->string('useFirstname');
-            $table->string('useLastname');
-            $table->string('useStreet');
-            $table->string('useZIP');
-            $table->string('useCity');
-            $table->string('useState');
-            $table->string('useMail');
+            $table->id('key');
+            $table->unsignedBigInteger('groId');
+            $table->string('username');
+            $table->string('password');
+            $table->string('firstname');
+            $table->string('lastname');
+            $table->string('street');
+            $table->string('zip');
+            $table->string('city');
+            $table->string('state');
+            $table->string('mail');
             $table->timestamps();
-            $table->foreign('useGroId')->references('groKey')->on('groups');
+            $table->foreign('groId')->references('Key')->on('groups');
         });
     }
 

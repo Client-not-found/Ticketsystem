@@ -11,13 +11,13 @@
                 <form method="post" action="/knowledgebase">
                     @csrf
                     <div>
-                        <input type="hidden" id="user" name="user" value="{{auth()->user()->useKey}}">
+                        <input type="hidden" id="user" name="user" value="{{auth()->user()->key}}">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="category">Category</label>
                         <select id="category" name="category" class="form-control">
                             @foreach($categories as $category)
-                            <option value="{{$category->catKey}}">{{$category->catName}}</option>
+                            <option value="{{$category->key}}">{{$category->name}}</option>
                             @endforeach
                         </select>
                     </div>

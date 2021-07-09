@@ -9,5 +9,5 @@ class Article extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['artKey', 'artUseId', 'artCatId', 'artTopic', 'artMessage'];
+    protected $fillable = ['key', 'useId', 'catId', 'topic', 'message'];
 }

@@ -12,7 +12,7 @@
                 <div class="card">
                     <br>
                     <div class="text-center">
-                        <h4>{{$article->artTopic}}</h4>
+                        <h4>{{$article->topic}}</h4>
                     </div>
                     <br>
                 </div>
@@ -24,14 +24,14 @@
                 <div class="card">
                     <div class="card-body">
                         <h6 class="card-subtitle mb-2">Username</h6>
-                        <p class="card-text">{{$article->useUsername}}</p>
+                        <p class="card-text">{{$article->username}}</p>
                         <h6 class="card-subtitle mb-2">Benutzergruppe</h6>
-                        <p class="card-text">{{$article->groName}}</p>
+                        <p class="card-text">{{$article->name}}</p>
                         @can('delete', App\Article::class)
                         <hr>
                         <form method="post" action="/deleteArticle">
                             @csrf
-                            <input type="hidden" id="artKey" name="artKey" value="{{$article->artKey}}">
+                            <input type="hidden" id="artKey" name="artKey" value="{{$article->key}}">
                             <div class="col-md-2">
                                 <button type="submit" @click="artDelete" class="btn btn-outline-danger">Delete</button>
                             </div>
@@ -43,7 +43,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-body">
-                        <p class="card-text">{{$article->artMessage}}</p>
+                        <p class="card-text">{{$article->message}}</p>
                     </div>
                 </div>
             </div>

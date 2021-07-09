@@ -9,10 +9,10 @@ class Ticket extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['ticKey', 'ticUseId', 'ticDepId', 'ticSubject', 'ticStatus'];
+    protected $fillable = ['key', 'useId', 'depId', 'subject', 'status'];
 
     public function departement()
     {
-        return $this->hasOne(Departement::class, 'depKey', 'ticDepId');
+        return $this->hasOne(Departement::class, 'Key', 'depId');
     }
 }

@@ -23,7 +23,7 @@ class UserController extends Controller
     {
         $this->authorize('view', User::class);
         return view('acp.userdetails', [
-            'user' => User::where( "useKey", $id )->first(),
+            'user' => User::where( "key", $id )->first(),
             'groups' => Group::all(),
         ]);
 
@@ -52,17 +52,17 @@ class UserController extends Controller
         ]);
 
         DB::table('users')
-            ->where('useKey', '=', $request->useKey)
+            ->where('useKey', '=', $request->key)
             ->update(['useGroId' => $request->group,
-            'useUsername' => $request->username, 
-            'usePassword' => bcrypt( $request->password ),
-            'useFirstname' => $request->firstname,
-            'useLastname' => $request->lastname,
-            'useStreet' => $request->street,
-            'useZIP' => $request->zip,
-            'useCity' => $request->city,
-            'useState' => $request->state,
-            'useMail' => $request->mail]);
+            'username' => $request->username, 
+            'password' => bcrypt( $request->password ),
+            'firstname' => $request->firstname,
+            'lastname' => $request->lastname,
+            'street' => $request->street,
+            'zip' => $request->zip,
+            'city' => $request->city,
+            'state' => $request->state,
+            'mail' => $request->mail]);
 
         return view('acp.user', [
             'users' => User::all(),
@@ -72,7 +72,7 @@ class UserController extends Controller
     public function acpDelete ( Request $request ) {
 
         $this->authorize('delete', User::class);
-        DB::table('users')->where('useKey', '=', $request->useKey )->delete();
+        DB::table('users')->where('key', '=', $request->key )->delete();
 
         return view('acp.user', [
             'users' => User::all(),
@@ -97,17 +97,17 @@ class UserController extends Controller
         ]);
         //dd($request->zip);
         User::create([
-            'useGroId' => $request->group,
-            'useUsername' => $request->username, 
-            'usePassword' => bcrypt( $request->password ),
-            'usepassword_confirmation'=> bcrypt( $request->password_confirmation),
-            'useFirstname' => $request->firstname,
-            'useLastname' => $request->lastname,
-            'useStreet' => $request->street,
-            'useZIP' => $request->zip,
-            'useCity' => $request->city,
-            'useState' => $request->state,
-            'useMail' => $request->mail,
+            'groId' => $request->group,
+            'username' => $request->username, 
+            'password' => bcrypt( $request->password ),
+            'password_confirmation'=> bcrypt( $request->password_confirmation),
+            'firstname' => $request->firstname,
+            'lastname' => $request->lastname,
+            'street' => $request->street,
+            'zip' => $request->zip,
+            'city' => $request->city,
+            'state' => $request->state,
+            'mail' => $request->mail,
         ]);
 
         return view('acp.user', [
@@ -132,17 +132,17 @@ class UserController extends Controller
         ]);
         //dd($request->zip);
         User::create([
-            'useGroId' => '3',
-            'useUsername' => $request->username, 
-            'usePassword' => bcrypt( $request->password ),
-            'usepassword_confirmation'=> bcrypt( $request->password_confirmation),
-            'useFirstname' => $request->firstname,
-            'useLastname' => $request->lastname,
-            'useStreet' => $request->street,
-            'useZIP' => $request->zip,
-            'useCity' => $request->city,
-            'useState' => $request->state,
-            'useMail' => $request->mail,
+            'groId' => '3',
+            'username' => $request->username, 
+            'password' => bcrypt( $request->password ),
+            'password_confirmation'=> bcrypt( $request->password_confirmation),
+            'firstname' => $request->firstname,
+            'lastname' => $request->lastname,
+            'street' => $request->street,
+            'zip' => $request->zip,
+            'city' => $request->city,
+            'state' => $request->state,
+            'mail' => $request->mail,
         ]);
 
         return view('welcome', [

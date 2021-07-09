@@ -28,7 +28,7 @@ class TicketController extends Controller {
         ]); } else {
             $this->authorize('view', Ticket::class);
             return view('tickets',[
-            'tickets' => Ticket::where('ticUseId', auth()->user()->useKey)->get()
+            'tickets' => Ticket::where('useId', auth()->user()->key)->get()
             ]); 
         }
     }
@@ -41,22 +41,22 @@ class TicketController extends Controller {
                 'tickets' => Ticket::all(),
                 'countTickets' => Ticket::count(),
 
-                'openTickets' => Ticket::where("ticStatus", "Open")->get(),
-                'countOpenTickets' => Ticket::where("ticStatus", "Open")->count(),
+                'openTickets' => Ticket::where("status", "Open")->get(),
+                'countOpenTickets' => Ticket::where("status", "Open")->count(),
 
-                'closeTickets' => Ticket::where("ticStatus", "Close")->get(),
-                'countClosedTickets' => Ticket::where("ticStatus", "Close")->count()
+                'closeTickets' => Ticket::where("status", "Close")->get(),
+                'countClosedTickets' => Ticket::where("status", "Close")->count()
         ]); } else {
             $this->authorize('view', Ticket::class);
             return view('dashboard',[
             'tickets' => Ticket::all(),
-            'countTickets' => Ticket::where('ticUseId', auth()->user()->useKey)->count(),
+            'countTickets' => Ticket::where('useId', auth()->user()->key)->count(),
 
-            'openTickets' => Ticket::where("ticStatus", "Open")->where('ticUseId', auth()->user()->useKey)->get(),
-            'countOpenTickets' => Ticket::where("ticStatus", "Open")->where('ticUseId', auth()->user()->useKey)->count(),
+            'openTickets' => Ticket::where("status", "Open")->where('useId', auth()->user()->key)->get(),
+            'countOpenTickets' => Ticket::where("status", "Open")->where('useId', auth()->user()->key)->count(),
 
-            'closeTickets' => Ticket::where("ticStatus", "Close")->where('ticUseId', auth()->user()->useKey)->get(),
-            'countClosedTickets' => Ticket::where("ticStatus", "Close")->where('ticUseId', auth()->user()->useKey)->count()
+            'closeTickets' => Ticket::where("status", "Close")->where('useId', auth()->user()->key)->get(),
+            'countClosedTickets' => Ticket::where("status", "Close")->where('useId', auth()->user()->key)->count()
 
         ]); }
 
@@ -65,19 +65,19 @@ class TicketController extends Controller {
     public function save ( Request $request ) {
         $this->authorize('create', Ticket::class);
         $ticket = Ticket::create([
-            'ticSubject' => $request->subject,
-            'ticUseId' => $request->user,
-            'ticDepId' => $request->departement, 
-            'ticStatus' => 'Open',
+            'subject' => $request->subject,
+            'useId' => $request->user,
+            'depId' => $request->departement, 
+            'status' => 'Open',
         ]);
         
         Message::create([
-            'mesTicId' => $ticket->id,
-            'mesUseId' => $request->user,
-            'mesMessage' => $request->message,
+            'ticId' => $ticket->id,
+            'useId' => $request->user,
+            'message' => $request->message,
         ]);
 
-        if(auth()->user()->useGroId == 2 || auth()->user()->useGroId == 1) {
+        if(auth()->user()->useGroId == 2 || auth()->user()->groId == 1) {
             $this->authorize('viewAny', Ticket::class);
             return view('tickets',[
             'tickets' => Ticket::all()
@@ -85,7 +85,7 @@ class TicketController extends Controller {
         ]); } else {
         $this->authorize('view', Ticket::class);
         return view('tickets',[
-        'tickets' => Ticket::where('ticUseId', auth()->user()->useKey)->get()
+        'tickets' => Ticket::where('useId', auth()->user()->key)->get()
         ]); 
     }
     }
@@ -93,8 +93,8 @@ class TicketController extends Controller {
     public function ticketDetails(Request $request, int $id)
     {
         return view('ticketDetails', [
-            'ticket' => Ticket::where( "ticKey", $id )->first(),
-            'messages' => Message::where('mesTicId', $id)->get(),
+            'ticket' => Ticket::where( "key", $id )->first(),
+            'messages' => Message::where('ticId', $id)->get(),
             'users' => User::all(),
         ]);
 
@@ -104,9 +104,9 @@ class TicketController extends Controller {
     {
         $this->authorize('create', Ticket::class);
         Message::create([
-            'mesTicId' => $request->ticId,
-            'mesUseId' => $request->user,
-            'mesMessage' => $request->message,
+            'ticId' => $request->id,
+            'useId' => $request->user,
+            'message' => $request->message,
         ]);
 
         return view('tickets',[
@@ -118,8 +118,8 @@ class TicketController extends Controller {
     {
         $this->authorize('update', Ticket::class);
         DB::table('tickets')
-        ->where('ticKey', $request->ticId)
-        ->update(['ticStatus' => $request->status]);
+        ->where('key', $request->key)
+        ->update(['status' => $request->status]);
 
         return view('tickets',[
             'tickets' => Ticket::all(),

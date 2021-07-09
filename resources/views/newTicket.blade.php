@@ -26,12 +26,12 @@
                                 <label for="departement">Departement</label>
                                 <select class="form-control" id="departement" name="departement" required>
                                     @foreach($departements as $departement)
-                                    <option value="{{$departement->depKey}}">{{$departement->depName}}</option>
+                                    <option value="{{$departement->key}}">{{$departement->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
-                                <input type="hidden" id="user" name="user" value="{{auth()->user()->useKey}}">
+                                <input type="hidden" id="user" name="user" value="{{auth()->user()->key}}">
                             </div>
                         </div>
                         <br>
