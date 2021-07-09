@@ -8,7 +8,7 @@
     <br>
     <div class="text-center">
         <h3>Ticket list</h3>
-        <p>Here you can see your ticket history</p>
+        <p>Here you can see your ticket history.</p>
     </div>
     <div class="col-md-12">
         @can('create', App\Ticket::class)

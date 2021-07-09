@@ -28,7 +28,7 @@
         <br>
         <div class="text-center">
             <h4>Admin Control Panel</h4>
-            <p>Welcome to the ACP here you can manage the ticketsystem</P>
+            <p>Welcome to the ACP here you can manage the ticketsystem.</P>
         </div>
         <br>
         <h4>Software</h4>

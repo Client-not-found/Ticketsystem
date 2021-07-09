@@ -48,7 +48,7 @@
                     </select>
                 </div>
                 <br>
-                <button type="submit" class="btn btn-outline-success" @click="save">Send</button>
+                <button type="submit" class="btn btn-outline-success">Send</button>
             </form>
         </div>
     </div>

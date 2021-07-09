@@ -10,7 +10,7 @@
             <div class="text-center">
                 <br>
                 <h3>Dashboard</h3>
-                <p>Welcome {{auth()->user()->groId}} {{auth()->user()->lastname}}</p>
+                <p>Welcome {{auth()->user()->firstname}} {{auth()->user()->lastname}}</p>
             </div>
             <br>
             <!-- Statistik -->

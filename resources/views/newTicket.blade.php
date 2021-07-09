@@ -40,7 +40,7 @@
                             <textarea class="form-control" id="message" name="message" rows="5" placeholder="Please describe your request here" required></textarea>
                         </div>
                         <br>
-                        <button type="submit" @click="save" class="btn btn-outline-success">Submit</button>
+                        <button type="submit" class="btn btn-outline-success">Submit</button>
                     </form>
                 </div>
             </div>

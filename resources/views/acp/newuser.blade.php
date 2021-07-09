@@ -101,7 +101,7 @@
                     <br>
                     <div class="row">
                         <div class="col-md-6">
-                            <button type="submit" @click="save" class="btn btn-outline-success">Send</button>
+                            <button type="submit" class="btn btn-outline-success">Send</button>
                         </div>
                     </div>
                 </form>

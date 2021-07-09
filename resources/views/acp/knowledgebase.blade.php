@@ -48,7 +48,11 @@
                 <div class="row">
                     <b class="col-md-2">{{$category->key}}</b>
                     <p class="col-md-5">{{$category->name}}</p>
-                    <p class="col-md-5">{{$category->status}}</p>
+                    @if($category->active === 1)
+                    <p class="col-md-5">Enabled</p>
+                    @else
+                    <p class="col-md-5">Disabled</p>
+                    @endif
                 </div>
             </a>
         </div>

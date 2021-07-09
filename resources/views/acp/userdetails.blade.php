@@ -98,7 +98,7 @@
                     <br>
                     <div class="row">
                         <div class="col-md-2">
-                            <button type="submit" @click="edit" class="btn btn-outline-warning">Edit</button>
+                            <button type="submit" class="btn btn-outline-warning">Edit</button>
                         </div>
                     </div>
                 </form>
@@ -107,7 +107,7 @@
                     @csrf
                     <input type="hidden" id="key" name="key" value="{{$user->key}}">
                     <div class="col-md-2">
-                        <button type="submit" @click="acpDelete" class="btn btn-outline-danger">Delete</button>
+                        <button type="submit" class="btn btn-outline-danger">Delete</button>
                     </div>
                 </form>
             </div>

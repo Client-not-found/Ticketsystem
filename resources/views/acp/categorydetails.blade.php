@@ -45,18 +45,18 @@
                     <label for="active">Status</label>
                     <select class="form-control" id="active" name="active" required>
                         <option value="1">Enabled</option>
-                        <option value="2">Disabled</option>
+                        <option value="0">Disabled</option>
                     </select>
                 </div>
                 <br>
-                <button type="submit" class="btn btn-outline-warning" @click="edit">Edit</button>
+                <button type="submit" class="btn btn-outline-warning">Edit</button>
             </form>
             <br>
             <form method="post" action="/deleteCategory">
                 @csrf
                 <input type="hidden" id="key" name="key" value="{{$category->key}}">
                 <div class="col-md-2">
-                    <button type="submit" @click="acpDelete" class="btn btn-outline-danger">Delete</button>
+                    <button type="submit" class="btn btn-outline-danger">Delete</button>
                 </div>
             </form>
         </div>

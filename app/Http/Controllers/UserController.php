@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+
 use App\Models\Ticket;
 use App\Models\Group;
 use App\Models\User;
@@ -17,6 +18,16 @@ class UserController extends Controller
         return view('acp.user',[
         'users' => User::all(),
         ]);
+    }
+
+    public function profile(int $id) {
+        return view('profile',[
+            'user' => User::where( "key", $id )->first(),
+        ]);
+    }
+
+    public function security() {
+        return view('security');
     }
 
     public function userDetails(Request $request, int $id)
@@ -38,6 +49,7 @@ class UserController extends Controller
 
 
     public function acpEdit ( Request $request ) {
+        //dd($request);
         $this->authorize('update', User::class);
         $request->validate([
             'group' => 'required',
@@ -52,8 +64,8 @@ class UserController extends Controller
         ]);
 
         DB::table('users')
-            ->where('useKey', '=', $request->key)
-            ->update(['useGroId' => $request->group,
+            ->where('key', '=', $request->key)
+            ->update(['groId' => $request->group,
             'username' => $request->username, 
             'password' => bcrypt( $request->password ),
             'firstname' => $request->firstname,
@@ -66,6 +78,34 @@ class UserController extends Controller
 
         return view('acp.user', [
             'users' => User::all(),
+            ]);
+    }
+
+    public function profilesave ( Request $request, int $id ) {
+        //dd($request);
+        $this->authorize('update', User::class);
+        $request->validate([
+            'password' => 'required',
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'street' => 'required',
+            'zip' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+        ]);
+
+        DB::table('users')
+            ->where('key', '=', $id)
+            ->update(['password' => bcrypt( $request->password ),
+            'firstname' => $request->firstname,
+            'lastname' => $request->lastname,
+            'street' => $request->street,
+            'zip' => $request->zip,
+            'city' => $request->city,
+            'state' => $request->state,]);
+
+        return view('profile', [
+            'user' => User::where( "key", $id )->first(),
             ]);
     }
 
@@ -132,7 +172,7 @@ class UserController extends Controller
         ]);
         //dd($request->zip);
         User::create([
-            'groId' => '3',
+            'groId' => $request->group,
             'username' => $request->username, 
             'password' => bcrypt( $request->password ),
             'password_confirmation'=> bcrypt( $request->password_confirmation),
